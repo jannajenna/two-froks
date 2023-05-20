@@ -106,3 +106,19 @@ a {
   }
 }
  */
+
+:root {
+  --light-pink: #fdf8fb;
+  --light-purple: #9595d1;
+  --green: #00a499;
+  --dark-purple: #2b164e;
+  --red: #f92830;
+  --yellow: #ffbe1e;
+  --white: #fff;
+  --black: #000;
+
+  /* Fonts */
+  /* --font-h1: "grandstander", sans-serif;
+  --font-space-grotesk: "space_grotesk", serif;
+  --font-poppins: "poppins", serif; */
+}
