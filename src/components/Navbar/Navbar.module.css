@@ -1,0 +1,19 @@
+.navbar {
+  padding: 1rem 3rem;
+  background-color: var(--light-purple);
+  display: inline-block;
+  width: 100vw;
+  text-align: center;
+}
+
+.navbar a {
+  padding: 0 1rem;
+}
+
+.navbar a:nth-child(1) {
+  float: left;
+}
+
+.navbar button {
+  float: right;
+}

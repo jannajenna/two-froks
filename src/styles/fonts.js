@@ -12,5 +12,6 @@ export const space_grotesk = Space_Grotesk({
 
 export const poppins = Poppins({
   subsets: ["latin"],
+  weight: "400",
   display: "swap",
 });

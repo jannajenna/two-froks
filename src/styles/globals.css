@@ -107,6 +107,8 @@ a {
 }
  */
 
+/* @import "fonts.js"; */
+
 :root {
   --light-pink: #fdf8fb;
   --light-purple: #9595d1;
@@ -121,4 +123,30 @@ a {
   /* --font-h1: "grandstander", sans-serif;
   --font-space-grotesk: "space_grotesk", serif;
   --font-poppins: "poppins", serif; */
+}
+
+*,
+:before,
+:after {
+  box-sizing: border-box;
+  border-width: 0;
+  border-style: solid;
+  border-color: currentColor;
+}
+
+body,
+html {
+  margin: 0;
+}
+
+body {
+  /* font-family: var(--font-poppins); */
+  background: var(--light-pink);
+  color: var(--dark-purple);
+}
+
+.wrapper {
+  max-width: 800px;
+  padding: 0 1rem;
+  margin: 0 auto;
 }
