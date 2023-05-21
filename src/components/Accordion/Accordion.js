@@ -1,6 +1,6 @@
 import styles from "./Accordion.module.css";
 import { useState } from "react";
-import YellowButton from "../YellowButton";
+import YellowButton from "../Buttons/YellowButton";
 
 const Accordion = ({ title, content }) => {
   const [isActive, setIsActive] = useState(false);

@@ -1,0 +1,22 @@
+.yellowbutton,
+.greenbutton {
+  padding: 10px 25px;
+  border-radius: 50px;
+  cursor: pointer;
+}
+.yellowbutton {
+  color: var(--dark-purple);
+  background-color: var(--yellow);
+}
+.yellowbutton:hover {
+  background-color: var(--yellow-hover);
+}
+.greenbutton {
+  padding: 15px 30px;
+  color: white;
+  background-color: var(--green);
+  font-size: 1.2rem;
+}
+.greenbutton:hover {
+  background-color: var(--green-hover);
+}

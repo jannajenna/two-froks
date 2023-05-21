@@ -1,5 +1,5 @@
 import styles from "./Navbar.module.css";
-import YellowButton from "../YellowButton";
+import YellowButton from "../Buttons/YellowButton";
 
 export function Navbar() {
   return (

@@ -114,6 +114,7 @@ a {
   --light-purple: #9595d1;
   --light-purple-hover: #bfbfe3;
   --green: #00a499;
+  --green-hover: #067774;
   --dark-purple: #2b164e;
   --red: #f92830;
   --yellow: #ffbe1e;
@@ -151,23 +152,4 @@ body {
   max-width: 800px;
   padding: 0 1rem;
   margin: 0 auto;
-}
-
-.accordion {
-  margin: 1rem auto;
-}
-
-.accordions {
-  margin-bottom: 20%;
-}
-
-.yellowbutton {
-  color: var(--dark-purple);
-  background-color: var(--yellow);
-  padding: 10px 25px;
-  border-radius: 50px;
-  cursor: pointer;
-}
-.yellowbutton:hover {
-  background-color: var(--yellow-hover);
 }
