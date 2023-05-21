@@ -1,5 +1,6 @@
 import styles from "./Accordion.module.css";
 import { useState } from "react";
+import YellowButton from "../YellowButton";
 
 const Accordion = ({ title, content }) => {
   const [isActive, setIsActive] = useState(false);
@@ -13,8 +14,10 @@ const Accordion = ({ title, content }) => {
       {isActive && (
         <div className={styles.content}>
           {content}
-          <h5 className={styles.price}>Total Price: 0,- DKK</h5>
-          <button className="yellowbutton">add to cart</button>
+          <h4 className={styles.price}>Total Price: 0,- DKK</h4>
+          <div className={styles.flex}>
+            <YellowButton name="add to cart" />
+          </div>
         </div>
       )}
     </div>

@@ -117,6 +117,7 @@ a {
   --dark-purple: #2b164e;
   --red: #f92830;
   --yellow: #ffbe1e;
+  --yellow-hover: #eaa90b;
   --white: #fff;
   --black: #000;
 
@@ -156,10 +157,17 @@ body {
   margin: 1rem auto;
 }
 
+.accordions {
+  margin-bottom: 20%;
+}
+
 .yellowbutton {
   color: var(--dark-purple);
   background-color: var(--yellow);
   padding: 10px 25px;
   border-radius: 50px;
   cursor: pointer;
+}
+.yellowbutton:hover {
+  background-color: var(--yellow-hover);
 }

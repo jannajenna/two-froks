@@ -1,4 +1,5 @@
 import styles from "./Navbar.module.css";
+import YellowButton from "../YellowButton";
 
 export function Navbar() {
   return (
@@ -7,7 +8,7 @@ export function Navbar() {
       <a>Program</a>
       <a>About</a>
       <a>Press</a>
-      <button>tickets</button>
+      <YellowButton name="cart: 0" />
     </nav>
   );
 }

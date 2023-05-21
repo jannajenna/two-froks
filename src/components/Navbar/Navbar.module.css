@@ -1,9 +1,11 @@
 .navbar {
   padding: 1rem 3rem;
   background-color: var(--light-purple);
-  display: inline-block;
+  display: flex;
+  align-items: center;
   width: 100vw;
   text-align: center;
+  justify-items: center;
 }
 
 .navbar a {
@@ -11,9 +13,9 @@
 }
 
 .navbar a:nth-child(1) {
-  float: left;
+  margin-right: auto;
 }
 
 .navbar button {
-  float: right;
+  margin-left: auto;
 }
