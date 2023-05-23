@@ -1,5 +1,6 @@
 import styles from "./Navbar.module.css";
 import YellowButton from "../Buttons/YellowButton";
+import Anchor from "../Anchor";
 
 export function Navbar() {
   return (
@@ -8,7 +9,9 @@ export function Navbar() {
       <a>Program</a>
       <a>About</a>
       <a>Press</a>
-      <YellowButton name="cart: 0" />
+      <Anchor className="yellowbutton" href="../cart">
+        Cart: 0
+      </Anchor>
     </nav>
   );
 }

@@ -15,7 +15,7 @@ const TentAccordion = ({ title, content }) => {
         <div className={styles.content}>
           <p>Sapiente expedita hic obcaecati, laboriosam similique omnis architecto ducimus magnam accusantium corrupti quam sint dolore pariatur perspiciatis, necessitatibus rem vel dignissimos dolor ut sequi minus iste? Quas?</p>
 
-          <p>Available:{content}</p>
+          <p>Available spots: {content}</p>
           <h4 className={styles.price}>Total Price: 0,- DKK</h4>
           <div className={styles.flex}>
             <YellowButton name="add to cart" />

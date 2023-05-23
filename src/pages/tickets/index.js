@@ -1,17 +1,21 @@
 import Accordion from "@/components/Accordion/Accordion";
 import TentAccordion from "@/components/Accordion/TentAccordion";
 import { TicketData } from "@/data/ticketData";
-import { TentData } from "@/data/tentData";
 import { GreenData } from "@/data/greenData";
 import { Hero } from "@/components/Hero/Hero";
 import styles from "./Tickets.module.css";
 import GreenButton from "@/components/Buttons/GreenButton";
+import Head from "next/head";
+import Anchor from "@/components/Anchor";
 
 export default function Tickets(props) {
   return (
     <>
+      <Head>
+        <title>Tickets</title>
+      </Head>
       <Hero title="Tickets" />
-      <div className={styles.accordions}>
+      <section className={styles.accordions}>
         <div className={styles.accordion}>
           {TicketData.map(({ title, content }) => (
             <Accordion title={title} content={content} />
@@ -31,11 +35,15 @@ export default function Tickets(props) {
             <Accordion title={title} content={content} />
           ))}
         </div>
-      </div>
-      <div className={styles.buttons}>
-        <GreenButton name="Program" />
-        <GreenButton name="Pay now" />
-      </div>
+      </section>
+      <section className={styles.buttons}>
+        <Anchor className="greenbutton" href="#">
+          Program
+        </Anchor>
+        <Anchor className="greenbutton" href="../cart/checkout">
+          Pay Now
+        </Anchor>
+      </section>
     </>
   );
 }
