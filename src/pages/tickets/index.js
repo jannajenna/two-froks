@@ -1,14 +1,23 @@
-import Accordion from "@/components/Accordion/Accordion";
-import TentAccordion from "@/components/Accordion/TentAccordion";
+// import Accordion from "@/components/Accordion/Accordion";
+// import TentAccordion from "@/components/Accordion/TentAccordion";
 import { TicketData } from "@/data/ticketData";
-import { GreenData } from "@/data/greenData";
+// import { GreenData } from "@/data/greenData";
 import { Hero } from "@/components/Hero/Hero";
 import styles from "./Tickets.module.css";
-import GreenButton from "@/components/Buttons/GreenButton";
 import Head from "next/head";
 import Anchor from "@/components/Anchor";
+import { useState } from "react";
+import YellowButton from "@/components/Buttons/YellowButton";
 
 export default function Tickets(props) {
+  const [isRegularActive, setIsRegularActive] = useState(false);
+  const [isVipActive, setIsVipActive] = useState(false);
+  const [isTent1Active, setIsTent1Active] = useState(false);
+  const [isTent2Active, setIsTent2Active] = useState(false);
+  const [isTent3Active, setIsTent3Active] = useState(false);
+  const [isTent4Active, setIsTent4Active] = useState(false);
+  const [isTent5Active, setIsTent5Active] = useState(false);
+  const [isGreenActive, setIsGreenActive] = useState(false);
   return (
     <>
       <Head>
@@ -17,24 +26,143 @@ export default function Tickets(props) {
       <Hero title="Tickets" />
       <section className={styles.accordions}>
         <div className={styles.accordion}>
-          {TicketData.map(({ title, content }) => (
-            <Accordion title={title} content={content} />
-          ))}
+          <article className={styles.item}>
+            <div className={styles.title} onClick={() => setIsRegularActive(!isRegularActive)}>
+              <div>{isRegularActive ? "-" : "+"}</div>
+              <h3>{TicketData.regular.name}</h3>
+              <h4 className={styles.price}>{TicketData.regular.price},- DKK</h4>
+            </div>
+            {isRegularActive && (
+              <div className={styles.content}>
+                {TicketData.regular.description}
+                <div className={styles.flex}>
+                  <YellowButton name="add to cart" />
+                </div>
+              </div>
+            )}
+          </article>
+          <article className={styles.item}>
+            <div className={styles.title} onClick={() => setIsVipActive(!isVipActive)}>
+              <div>{isVipActive ? "-" : "+"}</div>
+              <h3>{TicketData.vip.name}</h3>
+              <h4 className={styles.price}>{TicketData.vip.price},- DKK</h4>
+            </div>
+            {isVipActive && (
+              <div className={styles.content}>
+                {TicketData.vip.description}
+                <div className={styles.flex}>
+                  <YellowButton name="add to cart" />
+                </div>
+              </div>
+            )}
+          </article>
         </div>
         <h2>
           Tents<span className={styles.priceHint}> FROM 299,-/stk</span>
         </h2>
         <div className={styles.accordion}>
-          {props.tents.map((tent) => (
-            <TentAccordion title={tent.area} content={tent.available} />
-          ))}
+          <article className={styles.item}>
+            <div className={styles.title} onClick={() => setIsTent1Active(!isTent1Active)}>
+              <div>{isTent1Active ? "-" : "+"}</div>
+              <h3>{TicketData.tent1.name}</h3>
+              <h4 className={styles.available}>Available spots: {props.tents[0].available}</h4>
+            </div>
+            {isTent1Active && (
+              <div className={styles.content}>
+                {TicketData.tent1.description}
+                <h4 className={styles.price}>2 person tent: {TicketData.tent1.price2},- DKK</h4>
+                <h4 className={styles.price}>3 person tent: {TicketData.tent1.price3},- DKK</h4>
+                <div className={styles.flex}>
+                  <YellowButton name="add to cart" />
+                </div>
+              </div>
+            )}
+          </article>
+          <article className={styles.item}>
+            <div className={styles.title} onClick={() => setIsTent2Active(!isTent2Active)}>
+              <div>{isTent2Active ? "-" : "+"}</div>
+              <h3>{TicketData.tent2.name}</h3>
+              <h4 className={styles.available}>Available spots: {props.tents[1].available}</h4>
+            </div>
+            {isTent2Active && (
+              <div className={styles.content}>
+                {TicketData.tent2.description}
+                <h4 className={styles.price}>2 person tent: {TicketData.tent2.price2},- DKK</h4>
+                <h4 className={styles.price}>3 person tent: {TicketData.tent2.price3},- DKK</h4>
+                <div className={styles.flex}>
+                  <YellowButton name="add to cart" />
+                </div>
+              </div>
+            )}
+          </article>
+          <article className={styles.item}>
+            <div className={styles.title} onClick={() => setIsTent3Active(!isTent3Active)}>
+              <div>{isTent3Active ? "-" : "+"}</div>
+              <h3>{TicketData.tent3.name}</h3>
+              <h4 className={styles.available}>Available spots: {props.tents[2].available}</h4>
+            </div>
+            {isTent3Active && (
+              <div className={styles.content}>
+                {TicketData.tent3.description}
+                <h4 className={styles.price}>2 person tent: {TicketData.tent3.price2},- DKK</h4>
+                <h4 className={styles.price}>3 person tent: {TicketData.tent3.price3},- DKK</h4>
+                <div className={styles.flex}>
+                  <YellowButton name="add to cart" />
+                </div>
+              </div>
+            )}
+          </article>
+          <article className={styles.item}>
+            <div className={styles.title} onClick={() => setIsTent4Active(!isTent4Active)}>
+              <div>{isTent4Active ? "-" : "+"}</div>
+              <h3>{TicketData.tent4.name}</h3>
+              <h4 className={styles.available}>Available spots: {props.tents[3].available}</h4>
+            </div>
+            {isTent4Active && (
+              <div className={styles.content}>
+                {TicketData.tent4.description}
+                <h4 className={styles.price}>2 person tent: {TicketData.tent4.price2},- DKK</h4>
+                <h4 className={styles.price}>3 person tent: {TicketData.tent4.price3},- DKK</h4>
+                <div className={styles.flex}>
+                  <YellowButton name="add to cart" />
+                </div>
+              </div>
+            )}
+          </article>
+          <article className={styles.item}>
+            <div className={styles.title} onClick={() => setIsTent5Active(!isTent5Active)}>
+              <div>{isTent5Active ? "-" : "+"}</div>
+              <h3>{TicketData.tent5.name}</h3>
+              <h4 className={styles.available}>Available spots: {props.tents[4].available}</h4>
+            </div>
+            {isTent5Active && (
+              <div className={styles.content}>
+                {TicketData.tent5.description}
+                <h4 className={styles.price}>2 person tent: {TicketData.tent5.price2},- DKK</h4>
+                <h4 className={styles.price}>3 person tent: {TicketData.tent5.price3},- DKK</h4>
+                <div className={styles.flex}>
+                  <YellowButton name="add to cart" />
+                </div>
+              </div>
+            )}
+          </article>
         </div>
         <h2>Sustainability</h2>
-        <div className={styles.accordion}>
-          {GreenData.map(({ title, content }) => (
-            <Accordion title={title} content={content} />
-          ))}
-        </div>
+        <article className={styles.item}>
+          <div className={styles.title} onClick={() => setIsGreenActive(!isGreenActive)}>
+            <div>{isGreenActive ? "-" : "+"}</div>
+            <h3>{TicketData.green.name}</h3>
+            <h4 className={styles.price}>{TicketData.green.price},- DKK</h4>
+          </div>
+          {isGreenActive && (
+            <div className={styles.content}>
+              {TicketData.green.description}
+              <div className={styles.flex}>
+                <YellowButton name="add to cart" />
+              </div>
+            </div>
+          )}
+        </article>
       </section>
       <section className={styles.buttons}>
         <Anchor className="greenbutton" href="#">
