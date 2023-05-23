@@ -18,6 +18,11 @@ export default function Tickets(props) {
   const [isTent4Active, setIsTent4Active] = useState(false);
   const [isTent5Active, setIsTent5Active] = useState(false);
   const [isGreenActive, setIsGreenActive] = useState(false);
+
+  const RegularQuantity = 0;
+  const VIPQuantity = 0;
+  const Tent_1_2personQuantity = 0;
+  const Tent_1_3personQuantity = 0;
   return (
     <>
       <Head>
@@ -35,6 +40,12 @@ export default function Tickets(props) {
             {isRegularActive && (
               <div className={styles.content}>
                 {TicketData.regular.description}
+                <div className={styles.itemQuantity}>
+                  <h4>Quantity:</h4>
+                  <button>-</button>
+                  <p>{RegularQuantity}</p>
+                  <button>+</button>
+                </div>
                 <div className={styles.flex}>
                   <YellowButton name="add to cart" />
                 </div>
@@ -50,6 +61,12 @@ export default function Tickets(props) {
             {isVipActive && (
               <div className={styles.content}>
                 {TicketData.vip.description}
+                <div className={styles.itemQuantity}>
+                  <h4>Quantity:</h4>
+                  <button>-</button>
+                  <p>{VIPQuantity}</p>
+                  <button>+</button>
+                </div>
                 <div className={styles.flex}>
                   <YellowButton name="add to cart" />
                 </div>
@@ -70,8 +87,18 @@ export default function Tickets(props) {
             {isTent1Active && (
               <div className={styles.content}>
                 {TicketData.tent1.description}
-                <h4 className={styles.price}>2 person tent: {TicketData.tent1.price2},- DKK</h4>
-                <h4 className={styles.price}>3 person tent: {TicketData.tent1.price3},- DKK</h4>
+                <div className={styles.itemQuantity}>
+                  <h4>2 person tent: {TicketData.tent1.price2},- DKK</h4>
+                  <button>-</button>
+                  <p>{Tent_1_2personQuantity}</p>
+                  <button>+</button>
+                </div>
+                <div className={styles.itemQuantity}>
+                  <h4>2 person tent: {TicketData.tent1.price3},- DKK</h4>
+                  <button>-</button>
+                  <p>{Tent_1_3personQuantity}</p>
+                  <button>+</button>
+                </div>
                 <div className={styles.flex}>
                   <YellowButton name="add to cart" />
                 </div>
@@ -87,8 +114,18 @@ export default function Tickets(props) {
             {isTent2Active && (
               <div className={styles.content}>
                 {TicketData.tent2.description}
-                <h4 className={styles.price}>2 person tent: {TicketData.tent2.price2},- DKK</h4>
-                <h4 className={styles.price}>3 person tent: {TicketData.tent2.price3},- DKK</h4>
+                <div className={styles.itemQuantity}>
+                  <h4>2 person tent: {TicketData.tent1.price2},- DKK</h4>
+                  <button>-</button>
+                  <p>{Tent_1_2personQuantity}</p>
+                  <button>+</button>
+                </div>
+                <div className={styles.itemQuantity}>
+                  <h4>2 person tent: {TicketData.tent1.price3},- DKK</h4>
+                  <button>-</button>
+                  <p>{Tent_1_3personQuantity}</p>
+                  <button>+</button>
+                </div>
                 <div className={styles.flex}>
                   <YellowButton name="add to cart" />
                 </div>
@@ -104,8 +141,18 @@ export default function Tickets(props) {
             {isTent3Active && (
               <div className={styles.content}>
                 {TicketData.tent3.description}
-                <h4 className={styles.price}>2 person tent: {TicketData.tent3.price2},- DKK</h4>
-                <h4 className={styles.price}>3 person tent: {TicketData.tent3.price3},- DKK</h4>
+                <div className={styles.itemQuantity}>
+                  <h4>2 person tent: {TicketData.tent1.price2},- DKK</h4>
+                  <button>-</button>
+                  <p>{Tent_1_2personQuantity}</p>
+                  <button>+</button>
+                </div>
+                <div className={styles.itemQuantity}>
+                  <h4>2 person tent: {TicketData.tent1.price3},- DKK</h4>
+                  <button>-</button>
+                  <p>{Tent_1_3personQuantity}</p>
+                  <button>+</button>
+                </div>
                 <div className={styles.flex}>
                   <YellowButton name="add to cart" />
                 </div>
@@ -121,8 +168,18 @@ export default function Tickets(props) {
             {isTent4Active && (
               <div className={styles.content}>
                 {TicketData.tent4.description}
-                <h4 className={styles.price}>2 person tent: {TicketData.tent4.price2},- DKK</h4>
-                <h4 className={styles.price}>3 person tent: {TicketData.tent4.price3},- DKK</h4>
+                <div className={styles.itemQuantity}>
+                  <h4>2 person tent: {TicketData.tent1.price2},- DKK</h4>
+                  <button>-</button>
+                  <p>{Tent_1_2personQuantity}</p>
+                  <button>+</button>
+                </div>
+                <div className={styles.itemQuantity}>
+                  <h4>2 person tent: {TicketData.tent1.price3},- DKK</h4>
+                  <button>-</button>
+                  <p>{Tent_1_3personQuantity}</p>
+                  <button>+</button>
+                </div>
                 <div className={styles.flex}>
                   <YellowButton name="add to cart" />
                 </div>
@@ -138,8 +195,18 @@ export default function Tickets(props) {
             {isTent5Active && (
               <div className={styles.content}>
                 {TicketData.tent5.description}
-                <h4 className={styles.price}>2 person tent: {TicketData.tent5.price2},- DKK</h4>
-                <h4 className={styles.price}>3 person tent: {TicketData.tent5.price3},- DKK</h4>
+                <div className={styles.itemQuantity}>
+                  <h4>2 person tent: {TicketData.tent1.price2},- DKK</h4>
+                  <button>-</button>
+                  <p>{Tent_1_2personQuantity}</p>
+                  <button>+</button>
+                </div>
+                <div className={styles.itemQuantity}>
+                  <h4>2 person tent: {TicketData.tent1.price3},- DKK</h4>
+                  <button>-</button>
+                  <p>{Tent_1_3personQuantity}</p>
+                  <button>+</button>
+                </div>
                 <div className={styles.flex}>
                   <YellowButton name="add to cart" />
                 </div>

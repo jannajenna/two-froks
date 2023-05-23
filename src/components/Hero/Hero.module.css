@@ -1,4 +1,6 @@
 .headline {
+  text-transform: uppercase;
+  font-size: 5rem;
   margin: 6rem 0;
   text-align: center;
 }
