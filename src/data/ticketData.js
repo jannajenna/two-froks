@@ -1,18 +1,68 @@
-export const TicketData = [
-  {
-    title: "Regular",
-    content: `Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis sapiente
-      laborum cupiditate possimus labore, hic temporibus velit dicta earum
-      suscipit commodi eum enim atque at? Et perspiciatis dolore iure
-      voluptatem.`,
+export const TicketData = {
+  regular: {
+    name: `Regular`,
+    price: 799,
+    description: `Sapiente expedita hic obcaecati, laboriosam similique omnis architecto ducimus magnam accusantium corrupti
+  quam sint dolore pariatur perspiciatis, necessitatibus rem vel dignissimos
+  dolor ut sequi minus iste? Quas?`,
   },
-  {
-    title: "VIP",
-    content: `Lorem ipsum, dolor sit amet consectetur adipisicing elit. Mollitia veniam
-      reprehenderit nam assumenda voluptatem ut. Ipsum eius dicta, officiis
-      quaerat iure quos dolorum accusantium ducimus in illum vero commodi
-      pariatur? Impedit autem esse nostrum quasi, fugiat a aut error cumque
-      quidem maiores doloremque est numquam praesentium eos voluptatem amet!
-      Repudiandae, mollitia id reprehenderit a ab odit!`,
+  vip: {
+    name: `VIP`,
+    price: 1299,
+    description: `Sapiente expedita hic obcaecati, laboriosam similique omnis architecto ducimus magnam accusantium corrupti
+  quam sint dolore pariatur perspiciatis, necessitatibus rem vel dignissimos
+  dolor ut sequi minus iste? Quas?`,
   },
-];
+  tent1: {
+    name: `Svartheim`,
+    price2: 299,
+    price3: 399,
+    description: `Sapiente expedita hic obcaecati, laboriosam similique omnis architecto ducimus magnam accusantium corrupti
+    quam sint dolore pariatur perspiciatis, necessitatibus rem vel dignissimos
+    dolor ut sequi minus iste? Quas?`,
+    available: 0,
+  },
+  tent2: {
+    name: `Nilfheim`,
+    price2: 299,
+    price3: 399,
+    description: `Sapiente expedita hic obcaecati, laboriosam similique omnis architecto ducimus magnam accusantium corrupti
+    quam sint dolore pariatur perspiciatis, necessitatibus rem vel dignissimos
+    dolor ut sequi minus iste? Quas?`,
+    available: 0,
+  },
+  tent3: {
+    name: `Helheim`,
+    price2: 299,
+    price3: 399,
+    description: `Sapiente expedita hic obcaecati, laboriosam similique omnis architecto ducimus magnam accusantium corrupti
+    quam sint dolore pariatur perspiciatis, necessitatibus rem vel dignissimos
+    dolor ut sequi minus iste? Quas?`,
+    available: 0,
+  },
+  tent4: {
+    name: `Muspelheim`,
+    price2: 299,
+    price3: 399,
+    description: `Sapiente expedita hic obcaecati, laboriosam similique omnis architecto ducimus magnam accusantium corrupti
+    quam sint dolore pariatur perspiciatis, necessitatibus rem vel dignissimos
+    dolor ut sequi minus iste? Quas?`,
+    available: 0,
+  },
+  tent5: {
+    name: `Alfheim`,
+    price2: 299,
+    price3: 399,
+    description: `Sapiente expedita hic obcaecati, laboriosam similique omnis architecto ducimus magnam accusantium corrupti
+    quam sint dolore pariatur perspiciatis, necessitatibus rem vel dignissimos
+    dolor ut sequi minus iste? Quas?`,
+    available: 0,
+  },
+  green: {
+    name: `Green Camping`,
+    price: 249,
+    description: `Sapiente expedita hic obcaecati, laboriosam similique omnis architecto ducimus magnam accusantium corrupti
+    quam sint dolore pariatur perspiciatis, necessitatibus rem vel dignissimos
+    dolor ut sequi minus iste? Quas?`,
+  },
+};

@@ -1,7 +1,8 @@
 .title {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: flex-start;
+  gap: 1rem;
   align-items: center;
   cursor: pointer;
   background-color: var(--light-purple);
@@ -24,25 +25,32 @@
   background-color: var(--light-purple-hover);
 }
 
-.price {
-  display: flex;
-  justify-content: end;
+.price,
+.available {
+  margin-left: auto;
 }
+
 .item {
   padding-bottom: 5px;
+}
+.itemQuantity {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
 }
 .flex {
   display: flex;
 }
 .flex button {
   margin-left: auto;
+  margin-top: 2rem;
 }
 /* @media screen and (max-width: 700px) {
-  body {
-    font-size: 18px;
-  }
-
-  .accordion {
-    width: 90%;
-  }
-} */
+    body {
+      font-size: 18px;
+    }
+  
+    .accordion {
+      width: 90%;
+    }
+  } */

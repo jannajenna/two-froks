@@ -153,3 +153,40 @@ body {
   padding: 0 1rem;
   margin: 0 auto;
 }
+
+/* BUTTONS */
+.yellowbutton,
+.greenbutton {
+  padding: 15px 30px;
+  border-radius: 50px;
+  cursor: pointer;
+  text-decoration: none;
+}
+.yellowbutton {
+  color: var(--dark-purple);
+  background-color: var(--yellow);
+}
+.yellowbutton:hover {
+  background-color: var(--yellow-hover);
+}
+.greenbutton {
+  color: white;
+  background-color: var(--green);
+  font-size: 1.2rem;
+}
+.greenbutton:hover {
+  background-color: var(--green-hover);
+}
+.navlink {
+  text-decoration: none;
+  color: var(--dark-purple);
+}
+.navlink:hover {
+  color: var(--light-purple-hover);
+}
+
+@media screen and (max-width: 550px) {
+  .navlink:not(:first-child) {
+    display: none;
+  }
+}
