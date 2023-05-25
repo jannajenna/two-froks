@@ -20,6 +20,7 @@ export const TicketData = {
     description: `Sapiente expedita hic obcaecati, laboriosam similique omnis architecto ducimus magnam accusantium corrupti
     quam sint dolore pariatur perspiciatis, necessitatibus rem vel dignissimos
     dolor ut sequi minus iste? Quas?`,
+    available: 0,
   },
   tent2: {
     name: `Nilfheim`,
@@ -28,6 +29,7 @@ export const TicketData = {
     description: `Sapiente expedita hic obcaecati, laboriosam similique omnis architecto ducimus magnam accusantium corrupti
     quam sint dolore pariatur perspiciatis, necessitatibus rem vel dignissimos
     dolor ut sequi minus iste? Quas?`,
+    available: 0,
   },
   tent3: {
     name: `Helheim`,
@@ -36,6 +38,7 @@ export const TicketData = {
     description: `Sapiente expedita hic obcaecati, laboriosam similique omnis architecto ducimus magnam accusantium corrupti
     quam sint dolore pariatur perspiciatis, necessitatibus rem vel dignissimos
     dolor ut sequi minus iste? Quas?`,
+    available: 0,
   },
   tent4: {
     name: `Muspelheim`,
@@ -44,6 +47,7 @@ export const TicketData = {
     description: `Sapiente expedita hic obcaecati, laboriosam similique omnis architecto ducimus magnam accusantium corrupti
     quam sint dolore pariatur perspiciatis, necessitatibus rem vel dignissimos
     dolor ut sequi minus iste? Quas?`,
+    available: 0,
   },
   tent5: {
     name: `Alfheim`,
@@ -52,6 +56,7 @@ export const TicketData = {
     description: `Sapiente expedita hic obcaecati, laboriosam similique omnis architecto ducimus magnam accusantium corrupti
     quam sint dolore pariatur perspiciatis, necessitatibus rem vel dignissimos
     dolor ut sequi minus iste? Quas?`,
+    available: 0,
   },
   green: {
     name: `Green Camping`,
