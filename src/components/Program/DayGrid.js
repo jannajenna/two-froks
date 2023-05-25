@@ -1,11 +1,12 @@
+import DayDropDown from "./DayDropDown";
 import ViewGrid from "./ViewGrid";
 
 
-export default function Day() {
+
+export default function DayGrid() {
     return (
         <div>
-            <h5>Monday</h5>
-            <h5>Artist/time/stage</h5>
+            <DayDropDown />
             <ViewGrid />
         </div>
     );
