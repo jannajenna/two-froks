@@ -1,20 +1,3 @@
-.priceHint {
-  padding-left: 1rem;
-  font-size: 1rem;
-}
-.buttons {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 10rem;
-}
-.accordion {
-  margin: 1rem auto;
-}
-
-.accordions {
-  margin-bottom: 3rem;
-}
-
 .title {
   display: flex;
   flex-direction: row;

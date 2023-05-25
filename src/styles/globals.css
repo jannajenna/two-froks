@@ -177,3 +177,16 @@ body {
 .greenbutton:hover {
   background-color: var(--green-hover);
 }
+.navlink {
+  text-decoration: none;
+  color: var(--dark-purple);
+}
+.navlink:hover {
+  color: var(--light-purple-hover);
+}
+
+@media screen and (max-width: 550px) {
+  .navlink:not(:first-child) {
+    display: none;
+  }
+}

@@ -57,22 +57,3 @@ function TentAccordion(props) {
 }
 
 export default TentAccordion;
-
-export async function getServerSideProps() {
-  // Fetch data from external API
-  const api = "https://blush-entertaining-raver.glitch.me/available-spots";
-  const res = await fetch(api);
-  // If no data - no page (404)
-  if (res.status != 200) {
-    return {
-      notFound: true,
-    };
-  }
-  const data = await res.json();
-  // Pass data to the page via props
-  return {
-    props: {
-      tents: data,
-    },
-  };
-}
