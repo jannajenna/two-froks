@@ -11,10 +11,28 @@ function reducer(state, action) {
   switch (action.action) {
     case "ADD_PRODUCT":
       console.log(state, action);
-      return { ...state, basket: state.basket.concat(action.payload) };
-      //   add to basket
-      // if it exists
-      // if it doesnt, create it and add one
+      const exists = state.basket.find((item) => item.name === action.payload.name);
+      if (exists) {
+        const nextBasket = state.basket.map((item) => {
+          if (item.name === action.payload.name) {
+            // found it
+            const copy = { ...item };
+            copy.amount++;
+            return copy;
+          } else {
+            return item;
+          }
+        });
+        return { ...state, basket: nextBasket };
+      } else {
+        const newItem = action.payload;
+        newItem.amount = 1;
+        return { ...state, basket: state.basket.concat(newItem) };
+      }
+      // add to basket
+      // if it exists, add 1
+      // if it does not: create it and add one
+
       return [];
   }
 }
