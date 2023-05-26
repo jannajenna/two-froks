@@ -15,7 +15,7 @@ export default function Checkout() {
         {state.basket.map((item) => {
           return (
             <li key={item.name}>
-              {item.amount} x {item.name}
+              {item.amount} {item.name}
             </li>
           );
         })}

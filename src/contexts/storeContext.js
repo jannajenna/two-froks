@@ -26,12 +26,15 @@ function reducer(state, action) {
         return { ...state, basket: nextBasket };
       } else {
         const newItem = action.payload;
-        newItem.amount = 1;
+        if (action.payload.tentFor3quantity && action.payload.tentFor2quantity) {
+          newItem.amount = action.payload.tentFor3quantity + "x tent for 3 & " + action.payload.tentFor2quantity + "x tent for 2";
+        } else if (action.payload.tentFor3quantity) {
+          newItem.amount = action.payload.tentFor3quantity + "x tent for 3";
+        } else if (action.payload.tentFor2quantity) {
+          newItem.amount = action.payload.tentFor2quantity + "x tent for 2";
+        } else newItem.amount = action.payload.quantity + " x";
         return { ...state, basket: state.basket.concat(newItem) };
       }
-      // add to basket
-      // if it exists, add 1
-      // if it does not: create it and add one
 
       return [];
   }

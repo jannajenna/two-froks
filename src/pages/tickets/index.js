@@ -33,6 +33,7 @@ export default function Tickets(props) {
         </div>
         <h2>Sustainability</h2>
         <GreenAccordion name={TicketData.green.name} price={TicketData.green.price} description={TicketData.green.description} />
+        <h5>Booking fee: 99,-DKK</h5>
       </section>
       <section className={styles.buttons}>
         <Anchor className="greenbutton" href="#">

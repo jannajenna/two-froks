@@ -1,18 +1,20 @@
 import { useState } from "react";
 import styles from "./Accordion.module.css";
-import YellowButton from "@/components/Buttons/YellowButton";
 import { useContext } from "react";
 import { DispatchContext } from "@/contexts/storeContext";
 
 function GreenAccordion(props) {
   const [isActive, setIsActive] = useState(false);
   const dispatch = useContext(DispatchContext);
+  const totalPrice = props.price;
   function addToBasket() {
     dispatch({
       action: "ADD_PRODUCT",
       payload: {
         name: props.name,
         price: props.price,
+        quantity: 1,
+        totalPrice: totalPrice,
       },
     });
   }
@@ -27,7 +29,7 @@ function GreenAccordion(props) {
         <div className={styles.content}>
           {props.description}
           <div className={styles.flex}>
-            <h4>Total Price: {props.price} ,-</h4>
+            <h4>Price: {totalPrice} ,- DKK</h4>
             <button className="yellowbutton" onClick={addToBasket}>
               add to cart
             </button>

@@ -1,6 +1,5 @@
 import { useState } from "react";
 import styles from "./Accordion.module.css";
-import YellowButton from "@/components/Buttons/YellowButton";
 import { useContext } from "react";
 import { DispatchContext } from "@/contexts/storeContext";
 
@@ -8,6 +7,7 @@ function TentAccordion(props) {
   const [isActive, setIsActive] = useState(false);
   const [tentFor2quantity, setTentfFor2Quantity] = useState(0);
   const [tentFor3quantity, setTentfFor3Quantity] = useState(0);
+  let totalPrice = tentFor2quantity * props.price2 + tentFor3quantity * props.price3;
   let increment2Quantity = () => {
     setTentfFor2Quantity(tentFor2quantity + 1);
   };
@@ -36,6 +36,7 @@ function TentAccordion(props) {
         price3: props.price2,
         tentFor2quantity: tentFor2quantity,
         tentFor3quantity: tentFor3quantity,
+        totalPrice: totalPrice,
       },
     });
   }
@@ -62,8 +63,8 @@ function TentAccordion(props) {
             <button onClick={increment3Quantity}>+</button>
           </div>
           <div className={styles.flex}>
-            <h4>Total Price: {tentFor2quantity * props.price2 + tentFor3quantity * props.price3} ,-</h4>
-            <button className="yellowbutton" onClick={addToBasket}>
+            <h4>Total Price: {totalPrice} ,- DKK</h4>
+            <button className="yellowbutton" onClick={addToBasket} disabled={totalPrice === 0}>
               add to cart
             </button>
           </div>

@@ -1,12 +1,12 @@
 import { useState } from "react";
 import styles from "./Accordion.module.css";
-import YellowButton from "@/components/Buttons/YellowButton";
 import { useContext } from "react";
 import { DispatchContext } from "@/contexts/storeContext";
 
 function TicketAccordion(props) {
   const [isActive, setIsActive] = useState(false);
   const [quantity, setQuantity] = useState(0);
+  let totalPrice = quantity * props.price;
   let incrementQuantity = () => {
     setQuantity(quantity + 1);
   };
@@ -24,6 +24,7 @@ function TicketAccordion(props) {
         name: props.name,
         price: props.price,
         quantity: quantity,
+        totalPrice: totalPrice,
       },
     });
   }
@@ -44,8 +45,8 @@ function TicketAccordion(props) {
             <button onClick={incrementQuantity}>+</button>
           </div>
           <div className={styles.flex}>
-            <h4>Total Price: {quantity * props.price} ,-</h4>
-            <button className="yellowbutton" onClick={addToBasket}>
+            <h4>Total Price: {totalPrice} ,- DKK</h4>
+            <button className="yellowbutton" onClick={addToBasket} disabled={totalPrice === 0}>
               add to cart
             </button>
           </div>
