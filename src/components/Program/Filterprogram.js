@@ -1,11 +1,14 @@
-
+import ByDay from "./ByDay";
+import ByStage from "./ByStage";
+import ByTime from "./ByTime";
+import styles from "./Filterprogram.module.css";
 
 export default function Filterprogram() {
     return (
         <nav>
-            <h5>by stage</h5>
-            <h5>by day</h5>
-            <h5>by time</h5>
+            <ByStage />
+            <ByDay />
+            <ByTime />
             <h5>clear all</h5>
         </nav>
     );

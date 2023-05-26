@@ -142,6 +142,10 @@ html {
   margin: 0;
 }
 
+p {
+  margin: 0;
+}
+
 body {
   /* font-family: var(--font-poppins); */
   background: var(--light-pink);

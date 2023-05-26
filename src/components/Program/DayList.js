@@ -1,15 +1,14 @@
 
-import DayDropDown from "./DayDropDown";
-import ViewList from "./ViewList";
+import DayDropDownList from "./DayDropDownList";
+
 
 
 
 export default function DayList() {
     return (
         <div>
-            <DayDropDown />
+            <DayDropDownList />
             <h5>Artist/time/stage</h5>
-            <ViewList />
         </div>
     );
 }

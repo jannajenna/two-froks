@@ -1,13 +1,13 @@
-import DayDropDown from "./DayDropDown";
-import ViewGrid from "./ViewGrid";
+import DayDropDownGrid from "./DayDropDownGrid";
+
+
 
 
 
 export default function DayGrid() {
     return (
         <div>
-            <DayDropDown />
-            <ViewGrid />
+            <DayDropDownGrid />
         </div>
     );
 }
