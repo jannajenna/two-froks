@@ -3,8 +3,6 @@ import { Hero } from "@/components/Hero/Hero";
 import styles from "./Tickets.module.css";
 import Head from "next/head";
 import Anchor from "@/components/Anchor";
-import { useState } from "react";
-import YellowButton from "@/components/Buttons/YellowButton";
 import TicketAccordion from "@/components/Accordion/TicketAccordion";
 import TentAccordion from "@/components/Accordion/TentAccordion";
 import GreenAccordion from "@/components/Accordion/GreenAccordion";

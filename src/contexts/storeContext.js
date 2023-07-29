@@ -9,32 +9,49 @@ const initialState = {
 
 function reducer(state, action) {
   switch (action.action) {
+    case "REMOVE_ONE_PRODUCT":
+      const nextBasket = state.basket.map((item) => {
+        if (item.name === action.payload.name) {
+          const copy = { ...item };
+          copy.quantity--;
+          return copy;
+        } else {
+          return item;
+        }
+      });
+      return { ...state, basket: nextBasket };
     case "ADD_PRODUCT":
       console.log(state, action);
-      const exists = state.basket.find((item) => item.name === action.payload.name);
-      if (exists) {
-        const nextBasket = state.basket.map((item) => {
-          if (item.name === action.payload.name) {
-            // found it
-            const copy = { ...item };
-            copy.amount++;
-            return copy;
-          } else {
-            return item;
-          }
-        });
-        return { ...state, basket: nextBasket };
-      } else {
-        const newItem = action.payload;
-        if (action.payload.tentFor3quantity && action.payload.tentFor2quantity) {
-          newItem.amount = action.payload.tentFor3quantity + "x tent for 3 & " + action.payload.tentFor2quantity + "x tent for 2";
-        } else if (action.payload.tentFor3quantity) {
-          newItem.amount = action.payload.tentFor3quantity + "x tent for 3";
-        } else if (action.payload.tentFor2quantity) {
-          newItem.amount = action.payload.tentFor2quantity + "x tent for 2";
-        } else newItem.amount = action.payload.quantity + " x";
-        return { ...state, basket: state.basket.concat(newItem) };
-      }
+      // const exists = state.basket.find((item) => item.name === action.payload.name);
+      // if (exists) {
+      //   const nextBasket = state.basket.map((item) => {
+      //     if (item.name === action.payload.name) {
+      //       // found it
+      //       // const copy = { ...item };
+      //       // copy.amount++;
+      //       // or???
+      //       // copy.quantity + action.payload.quantity;
+      //       return item;
+      //     } else {
+      //       return item;
+      //     }
+      //   });
+      //   return { ...state, basket: nextBasket };
+      // } else {
+      const newItem = action.payload;
+      if (action.payload.tentFor3quantity && action.payload.tentFor2quantity) {
+        newItem.amount = action.payload.tentFor3quantity + "x tent for 3 people, " + action.payload.tentFor2quantity + "x tent for 2 people in";
+        newItem.price = action.payload.totalPrice;
+      } else if (action.payload.tentFor3quantity) {
+        newItem.amount = action.payload.tentFor3quantity + "x tent for 3 people in";
+        newItem.price = action.payload.totalPrice;
+      } else if (action.payload.tentFor2quantity) {
+        newItem.amount = action.payload.tentFor2quantity + "x tent for 2 people in";
+        newItem.price = action.payload.totalPrice;
+      } else newItem.amount = action.payload.quantity + "x";
+      newItem.price = action.payload.totalPrice;
+      return { ...state, basket: state.basket.concat(newItem) };
+      // }
 
       return [];
   }

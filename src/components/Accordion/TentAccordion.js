@@ -33,7 +33,7 @@ function TentAccordion(props) {
       payload: {
         name: props.name,
         price2: props.price2,
-        price3: props.price2,
+        price3: props.price3,
         tentFor2quantity: tentFor2quantity,
         tentFor3quantity: tentFor3quantity,
         totalPrice: totalPrice,
