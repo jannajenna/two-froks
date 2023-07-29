@@ -1,11 +1,8 @@
-import styles from "./Filterprogram.module.css";
-
 
 export default function ByDay() {
     return (
         <div>
             <h5>by day</h5>
-            {/* <label for="day">Choose a day</label> */}
             <select name="day" id="day">
                 <option value="all_days">All days</option>
                 <option value="monday">Monday</option>
