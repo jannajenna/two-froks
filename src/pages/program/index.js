@@ -1,6 +1,6 @@
 import { Hero } from "@/components/Hero/Hero";
 import DayGrid from "@/components/Program/DayGrid";
-import Filterprogram from "@/components/Program/Filterprogram";
+import Filterprogram from "@/components/FilterProgram/Filterprogram";
 import Viewmode from "@/components/Program/Viewmode";
 
 export default function Program() {

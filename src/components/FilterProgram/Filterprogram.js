@@ -5,7 +5,10 @@ import styles from "./Filterprogram.module.css";
 
 export default function Filterprogram() {
     return (
-        <nav>
+        <nav className={styles.bkg}>
+            <div>
+                <p>Filter</p>
+            </div>
             <ByStage />
             <ByDay />
             <ByTime />
