@@ -5,8 +5,9 @@ import { insertOrder } from "@/modules/db";
 import Anchor from "@/components/Anchor";
 import { useContext } from "react";
 import { StoreContext } from "@/contexts/storeContext";
-import CartItem from "@/components/Cart/CartItem";
+import CartItemCheckout from "@/components/Cart/CartItemCheckout";
 import styles from "./Cart.module.css";
+import { Button, Checkbox, Form, Input, Radio } from "antd";
 
 function CheckoutForm(props) {
   const state = useContext(StoreContext);
@@ -24,6 +25,12 @@ function CheckoutForm(props) {
       setPaymentCompleted(true);
     }
   }
+  const onFinish = (values) => {
+    console.log("Success:", values);
+  };
+  const onFinishFailed = (errorInfo) => {
+    console.log("Failed:", errorInfo);
+  };
   return (
     <>
       <Head>
@@ -66,6 +73,7 @@ function CheckoutForm(props) {
                 <input required type="text" name="country" id="form-country" />
               </fieldset>
               <h2>Payment</h2>
+              <Radio checked>By Card</Radio>
               <fieldset>
                 <label for="CC_number">Credit card number</label>
                 <input type="number" minlength="16" maxlength="16" name="CC_number" id="CC_number" required />
@@ -76,19 +84,86 @@ function CheckoutForm(props) {
                 <label for="expiring">Date of expiration</label>
                 <input type="month" name="expiring" id="expiring" required />
               </fieldset>
+              {/* <Form
+                name="basic"
+                labelCol={{
+                  span: 8,
+                }}
+                wrapperCol={{
+                  span: 16,
+                }}
+                style={{
+                  maxWidth: 600,
+                }}
+                initialValues={{
+                  remember: true,
+                }}
+                onFinish={onFinish}
+                onFinishFailed={onFinishFailed}
+                autoComplete="off"
+              >
+                <Form.Item
+                  label="Username"
+                  name="username"
+                  rules={[
+                    {
+                      required: true,
+                      message: "Please input your username!",
+                    },
+                  ]}
+                >
+                  <Input />
+                </Form.Item>
+
+                <Form.Item
+                  label="Password"
+                  name="password"
+                  rules={[
+                    {
+                      required: true,
+                      message: "Please input your password!",
+                    },
+                  ]}
+                >
+                  <Input.Password />
+                </Form.Item>
+
+                <Form.Item
+                  name="remember"
+                  valuePropName="checked"
+                  wrapperCol={{
+                    offset: 8,
+                    span: 16,
+                  }}
+                >
+                  <Checkbox>Remember me</Checkbox>
+                </Form.Item>
+
+                <Form.Item
+                  wrapperCol={{
+                    offset: 8,
+                    span: 16,
+                  }}
+                >
+                  <Button type="primary" htmlType="submit">
+                    Submit
+                  </Button>
+                </Form.Item>
+              </Form> */}
             </div>
             <button>Confirm and Pay</button>
             <Anchor className="greenbutton" href="#">
               Confirm and Pay
             </Anchor>
           </form>
-          <aside className={styles.formcontrol}>
-            <h2>Cart</h2>
+          <aside className={styles.checkoutCart}>
+            <h2 className={styles.h2CheckoutCart}>Cart</h2>
             <ul>
               {state.basket.map((item) => {
-                return <CartItem {...item} key={item.name} />;
+                return <CartItemCheckout {...item} key={item.name} />;
               })}
-              <li>Booking fee: 99,-DKK</li>
+              <li className="checkoutBookingFee">Booking fee: 99,-DKK</li>
+              <li className="checkoutTotal">Total: 99,-DKK</li>
             </ul>
             <Anchor className="greenbutton" href="../cart">
               Edit Cart

@@ -1,0 +1,29 @@
+.cartItem button {
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.cartItem {
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr 1fr 24px 24px 1fr 24px;
+  gap: 1rem;
+  align-items: center;
+  font-weight: bold;
+}
+.cartItemCheckout {
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1.5fr 24px 1fr;
+  align-items: center;
+}
+.cartItemCheckout p {
+  margin-bottom: 1rem;
+  margin-top: 0;
+}
+.cartItem:hover {
+  background-color: rgba(255, 255, 255, 0.74);
+}
+.cartItemPrice {
+  text-align: end;
+}

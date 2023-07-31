@@ -153,7 +153,9 @@ body {
   padding: 0 1rem;
   margin: 0 auto;
 }
-
+ul {
+  padding-inline-start: 0;
+}
 /* BUTTONS */
 .yellowbutton,
 .greenbutton {
@@ -173,16 +175,40 @@ body {
   color: white;
   background-color: var(--green);
   font-size: 1.2rem;
+  text-align: center;
 }
 .greenbutton:hover {
   background-color: var(--green-hover);
 }
+
 .navlink {
   text-decoration: none;
   color: var(--dark-purple);
 }
 .navlink:hover {
   color: var(--light-purple-hover);
+}
+.cartBookingFee,
+.checkoutBookingFee {
+  border-bottom: 1px solid #2b164e;
+  border-top: 1px solid #2b164e29;
+  list-style: none;
+  text-align: end;
+  padding: 0.5rem 0rem 0.5rem 0rem;
+}
+.cartTotal,
+.checkoutTotal {
+  list-style: none;
+  text-align: end;
+  font-weight: bold;
+  padding: 0.5rem 0rem 0.5rem 0rem;
+}
+.cartBookingFee,
+.cartTotal {
+  padding: 2rem 0rem 2rem 0rem;
+}
+.cartBookingFee {
+  margin-top: 1rem;
 }
 
 @media screen and (max-width: 550px) {

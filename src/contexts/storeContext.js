@@ -40,13 +40,13 @@ function reducer(state, action) {
       // } else {
       const newItem = action.payload;
       if (action.payload.tentFor3quantity && action.payload.tentFor2quantity) {
-        newItem.amount = action.payload.tentFor3quantity + "x tent for 3 people, " + action.payload.tentFor2quantity + "x tent for 2 people in";
+        newItem.amount = action.payload.tentFor3quantity + "x tent for 3, " + action.payload.tentFor2quantity + "x tent for 2";
         newItem.price = action.payload.totalPrice;
       } else if (action.payload.tentFor3quantity) {
-        newItem.amount = action.payload.tentFor3quantity + "x tent for 3 people in";
+        newItem.amount = action.payload.tentFor3quantity + "x tent for 3";
         newItem.price = action.payload.totalPrice;
       } else if (action.payload.tentFor2quantity) {
-        newItem.amount = action.payload.tentFor2quantity + "x tent for 2 people in";
+        newItem.amount = action.payload.tentFor2quantity + "x tent for 2";
         newItem.price = action.payload.totalPrice;
       } else newItem.amount = action.payload.quantity + "x";
       newItem.price = action.payload.totalPrice;

@@ -29,13 +29,29 @@ export default function Checkout() {
 
 import Head from "next/head";
 import { Hero } from "@/components/Hero/Hero";
+import { useState } from "react";
 import { useContext } from "react";
 import { StoreContext } from "@/contexts/storeContext";
+import { DispatchContext } from "@/contexts/storeContext";
 import CartItem from "@/components/Cart/CartItem";
 import Anchor from "@/components/Anchor";
+import styles from "./Cart.module.css";
 
-export default function Cart() {
+export default function Cart(props) {
   const state = useContext(StoreContext);
+  // const dispatch = useContext(DispatchContext);
+  // const totalPrice = props.price;
+  // function addToBasket() {
+  //   dispatch({
+  //     action: "ADD_PRODUCT",
+  //     payload: {
+  //       name: props.name,
+  //       price: props.price,
+  //       quantity: 1,
+  //       totalPrice: totalPrice,
+  //     },
+  //   });
+  // }
 
   return (
     <>
@@ -43,15 +59,21 @@ export default function Cart() {
         <title>Cart</title>
       </Head>
       <Hero title="Cart" />
-      <ul>
+      <ul className={styles.cartUl}>
         {state.basket.map((item) => {
           return <CartItem {...item} key={item.name} />;
         })}
-        <li>Booking fee: 99,-DKK</li>
+        <li className="cartBookingFee">Booking fee: 99,-DKK</li>
+        <li className="cartTotal">Total: {props.price}</li>
       </ul>
-      <Anchor className="greenbutton" href="../cart/checkout">
-        Pay Now
-      </Anchor>
+      <div className={styles.cartButtons}>
+        <Anchor className="greenbutton" href="../tickets">
+          Tickets
+        </Anchor>
+        <Anchor className="greenbutton" href="../cart/checkout">
+          Checkout
+        </Anchor>
+      </div>
     </>
   );
 }

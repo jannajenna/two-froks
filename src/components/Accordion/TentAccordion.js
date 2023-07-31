@@ -2,6 +2,7 @@ import { useState } from "react";
 import styles from "./Accordion.module.css";
 import { useContext } from "react";
 import { DispatchContext } from "@/contexts/storeContext";
+import { MinusSquareOutlined, PlusSquareOutlined, UpOutlined, DownOutlined } from "@ant-design/icons";
 
 function TentAccordion(props) {
   const [isActive, setIsActive] = useState(false);
@@ -43,7 +44,7 @@ function TentAccordion(props) {
   return (
     <article className={styles.item}>
       <div className={styles.title} onClick={() => setIsActive(!isActive)}>
-        <div>{isActive ? "-" : "+"}</div>
+        <div className="accordionToggle">{isActive ? <UpOutlined style={{ fontSize: "24px", color: "#2b164e" }} /> : <DownOutlined style={{ fontSize: "24px", color: "#2b164e" }} />}</div>
         <h3>{props.name}</h3>
         <h4 className={styles.available}>Available spots: {props.available}</h4>
       </div>
@@ -52,15 +53,23 @@ function TentAccordion(props) {
           {props.description}
           <div className={styles.itemQuantity}>
             <h4>2 person tent: {props.price2},- DKK</h4>
-            <button onClick={decrement2Quantity}>-</button>
+            <button onClick={decrement2Quantity}>
+              <MinusSquareOutlined style={{ fontSize: "32px", color: "#2b164e" }} />
+            </button>
             <p>{tentFor2quantity}</p>
-            <button onClick={increment2Quantity}>+</button>
+            <button onClick={increment2Quantity}>
+              <PlusSquareOutlined style={{ fontSize: "32px", color: "#2b164e" }} />
+            </button>
           </div>
           <div className={styles.itemQuantity}>
             <h4>3 person tent: {props.price3},- DKK</h4>
-            <button onClick={decrement3Quantity}>-</button>
+            <button onClick={decrement3Quantity}>
+              <MinusSquareOutlined style={{ fontSize: "32px", color: "#2b164e" }} />
+            </button>
             <p>{tentFor3quantity}</p>
-            <button onClick={increment3Quantity}>+</button>
+            <button onClick={increment3Quantity}>
+              <PlusSquareOutlined style={{ fontSize: "32px", color: "#2b164e" }} />
+            </button>
           </div>
           <div className={styles.flex}>
             <h4>Total Price: {totalPrice} ,- DKK</h4>
