@@ -1,0 +1,15 @@
+.formcontrol {
+  background-color: var(--white);
+  padding: 1rem;
+  box-shadow: 1px 1px 15px 1px rgba(0, 0, 0, 0.05);
+  border-radius: 5px;
+  display: grid;
+  gap: 1rem;
+}
+.checkoutwrapper {
+  display: grid;
+  align-items: start;
+  grid-template-columns: 1fr 300px;
+  gap: 1rem;
+  margin-bottom: 6rem;
+}
