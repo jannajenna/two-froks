@@ -1,13 +1,13 @@
 export const TicketData = {
   regular: {
-    name: `Regular ticket`,
+    name: `Regular`,
     price: 799,
     description: `Sapiente expedita hic obcaecati, laboriosam similique omnis architecto ducimus magnam accusantium corrupti
   quam sint dolore pariatur perspiciatis, necessitatibus rem vel dignissimos
   dolor ut sequi minus iste? Quas?`,
   },
   vip: {
-    name: `VIP ticket`,
+    name: `VIP`,
     price: 1299,
     description: `Sapiente expedita hic obcaecati, laboriosam similique omnis architecto ducimus magnam accusantium corrupti
   quam sint dolore pariatur perspiciatis, necessitatibus rem vel dignissimos
@@ -15,8 +15,10 @@ export const TicketData = {
   },
   tent1: {
     name: `Svartheim`,
-    price2: 299,
-    price3: 399,
+    price: {
+      for2: 299,
+      for3: 399,
+    },
     description: `Sapiente expedita hic obcaecati, laboriosam similique omnis architecto ducimus magnam accusantium corrupti
     quam sint dolore pariatur perspiciatis, necessitatibus rem vel dignissimos
     dolor ut sequi minus iste? Quas?`,
@@ -24,8 +26,10 @@ export const TicketData = {
   },
   tent2: {
     name: `Nilfheim`,
-    price2: 299,
-    price3: 399,
+    price: {
+      for2: 299,
+      for3: 399,
+    },
     description: `Sapiente expedita hic obcaecati, laboriosam similique omnis architecto ducimus magnam accusantium corrupti
     quam sint dolore pariatur perspiciatis, necessitatibus rem vel dignissimos
     dolor ut sequi minus iste? Quas?`,
@@ -33,8 +37,10 @@ export const TicketData = {
   },
   tent3: {
     name: `Helheim`,
-    price2: 299,
-    price3: 399,
+    price: {
+      for2: 299,
+      for3: 399,
+    },
     description: `Sapiente expedita hic obcaecati, laboriosam similique omnis architecto ducimus magnam accusantium corrupti
     quam sint dolore pariatur perspiciatis, necessitatibus rem vel dignissimos
     dolor ut sequi minus iste? Quas?`,
@@ -42,8 +48,10 @@ export const TicketData = {
   },
   tent4: {
     name: `Muspelheim`,
-    price2: 299,
-    price3: 399,
+    price: {
+      for2: 299,
+      for3: 399,
+    },
     description: `Sapiente expedita hic obcaecati, laboriosam similique omnis architecto ducimus magnam accusantium corrupti
     quam sint dolore pariatur perspiciatis, necessitatibus rem vel dignissimos
     dolor ut sequi minus iste? Quas?`,
@@ -51,8 +59,10 @@ export const TicketData = {
   },
   tent5: {
     name: `Alfheim`,
-    price2: 299,
-    price3: 399,
+    price: {
+      for2: 299,
+      for3: 399,
+    },
     description: `Sapiente expedita hic obcaecati, laboriosam similique omnis architecto ducimus magnam accusantium corrupti
     quam sint dolore pariatur perspiciatis, necessitatibus rem vel dignissimos
     dolor ut sequi minus iste? Quas?`,

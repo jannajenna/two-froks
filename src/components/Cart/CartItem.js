@@ -1,32 +1,19 @@
-import { useContext } from "react";
-import { DispatchContext } from "@/contexts/storeContext";
-import { MinusSquareOutlined, PlusSquareOutlined, DeleteOutlined } from "@ant-design/icons";
 import styles from "./CartItem.module.css";
+import TicketItem from "./TicketItem";
+import TentItem from "./TentItem";
 
 function CartItem(props) {
-  const dispatch = useContext(DispatchContext);
-  function removeOne() {
-    dispatch({
-      action: "REMOVE_ONE_PRODUCT",
-      payload: {
-        id: props.name,
-      },
-    });
+  const validNames = ["Regular", "VIP", "Green Camping"];
+  let isTicket = true;
+  if (validNames.includes(props.name)) {
+    isTicket = true;
+  } else {
+    isTicket = false;
   }
+  console.log("Cart item props", props);
   return (
-    <li className={styles.cartItem}>
-      <p> {props.name}</p>
-      <p> {props.amount}</p>
-      <button onClick={removeOne}>
-        <MinusSquareOutlined style={{ fontSize: "24px", color: "#2b164e" }} />
-      </button>
-      <button>
-        <PlusSquareOutlined style={{ fontSize: "24px", color: "#2b164e" }} />
-      </button>
-      <p className={styles.cartItemPrice}>{props.price},-DKK</p>
-      <button>
-        <DeleteOutlined style={{ fontSize: "24px", color: "#2b164e" }} />
-      </button>
+    <li className={styles.cartLi}>
+      <div>{isTicket ? <TicketItem {...props} /> : <TentItem {...props} />}</div>
     </li>
   );
 }

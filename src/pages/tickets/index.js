@@ -23,11 +23,11 @@ export default function Tickets(props) {
           Tents<span className={styles.priceHint}> FROM 299,-/stk</span>
         </h2>
         <div className={styles.accordion}>
-          <TentAccordion name={TicketData.tent1.name} price2={TicketData.tent1.price2} price3={TicketData.tent1.price3} description={TicketData.tent1.description} available={props.tents[0].available} />
-          <TentAccordion name={TicketData.tent2.name} price2={TicketData.tent2.price2} price3={TicketData.tent2.price3} description={TicketData.tent2.description} available={props.tents[1].available} />
-          <TentAccordion name={TicketData.tent3.name} price2={TicketData.tent3.price2} price3={TicketData.tent3.price3} description={TicketData.tent3.description} available={props.tents[2].available} />
-          <TentAccordion name={TicketData.tent4.name} price2={TicketData.tent4.price2} price3={TicketData.tent4.price3} description={TicketData.tent4.description} available={props.tents[3].available} />
-          <TentAccordion name={TicketData.tent5.name} price2={TicketData.tent5.price2} price3={TicketData.tent5.price3} description={TicketData.tent5.description} available={props.tents[4].available} />
+          <TentAccordion name={TicketData.tent1.name} price2={TicketData.tent1.price.for2} price3={TicketData.tent1.price.for3} description={TicketData.tent1.description} available={props.tents[0].available} />
+          <TentAccordion name={TicketData.tent2.name} price2={TicketData.tent2.price.for2} price3={TicketData.tent2.price.for3} description={TicketData.tent2.description} available={props.tents[1].available} />
+          <TentAccordion name={TicketData.tent3.name} price2={TicketData.tent3.price.for2} price3={TicketData.tent3.price.for3} description={TicketData.tent3.description} available={props.tents[2].available} />
+          <TentAccordion name={TicketData.tent4.name} price2={TicketData.tent4.price.for2} price3={TicketData.tent4.price.for3} description={TicketData.tent4.description} available={props.tents[3].available} />
+          <TentAccordion name={TicketData.tent5.name} price2={TicketData.tent5.price.for2} price3={TicketData.tent5.price.for3} description={TicketData.tent5.description} available={props.tents[4].available} />
         </div>
         <h2>Sustainability</h2>
         <GreenAccordion name={TicketData.green.name} price={TicketData.green.price} description={TicketData.green.description} />

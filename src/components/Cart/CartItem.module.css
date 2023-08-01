@@ -1,9 +1,10 @@
-.cartItem button {
+.cartButton {
   background-color: transparent;
   cursor: pointer;
 }
 
-.cartItem {
+.cartItem,
+.cartItemMultiple {
   list-style: none;
   display: grid;
   grid-template-columns: 1fr 1fr 24px 24px 1fr 24px;
@@ -26,4 +27,10 @@
 }
 .cartItemPrice {
   text-align: end;
+}
+.cartItemMultiple {
+  grid-template-columns: 1fr 1fr 24px 24px 1fr 24px;
+}
+.cartLi {
+  list-style: none;
 }

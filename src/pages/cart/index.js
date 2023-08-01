@@ -1,32 +1,3 @@
-/*
-import Head from "next/head";
-import { Hero } from "@/components/Hero/Hero";
-import { useContext } from "react";
-import { StoreContext } from "@/contexts/storeContext";
-
-export default function Checkout() {
-  const state = useContext(StoreContext);
-  return (
-    <>
-      <Head>
-        <title>Cart</title>
-      </Head>
-      <Hero title="Cart" />
-      <ul>
-        {state.basket.map((item) => {
-          return (
-            <li key={item.name}>
-              {item.amount} {item.name} <button>-</button> {item.price},-DKK
-            </li>
-          );
-        })}
-        <li>Booking fee: 99,-DKK</li>
-      </ul>
-    </>
-  );
-}
-*/
-
 import Head from "next/head";
 import { Hero } from "@/components/Hero/Hero";
 import { useState } from "react";
@@ -39,19 +10,18 @@ import styles from "./Cart.module.css";
 
 export default function Cart(props) {
   const state = useContext(StoreContext);
-  // const dispatch = useContext(DispatchContext);
-  // const totalPrice = props.price;
-  // function addToBasket() {
-  //   dispatch({
-  //     action: "ADD_PRODUCT",
-  //     payload: {
-  //       name: props.name,
-  //       price: props.price,
-  //       quantity: 1,
-  //       totalPrice: totalPrice,
-  //     },
-  //   });
-  // }
+  let total = 0;
+  if (state.basket) {
+    state.basket.forEach((item) => {
+      total += item.price * item.amount;
+    });
+  }
+  let totalAmount = 0;
+  if (state.basket) {
+    state.basket.forEach((item) => {
+      totalAmount += item.amount;
+    });
+  }
 
   return (
     <>
@@ -61,10 +31,15 @@ export default function Cart(props) {
       <Hero title="Cart" />
       <ul className={styles.cartUl}>
         {state.basket.map((item) => {
+          console.log(item);
           return <CartItem {...item} key={item.name} />;
         })}
         <li className="cartBookingFee">Booking fee: 99,-DKK</li>
-        <li className="cartTotal">Total: {props.price}</li>
+        <li className="cartTotal">
+          Total:
+          {totalAmount}
+          ,-DKK
+        </li>
       </ul>
       <div className={styles.cartButtons}>
         <Anchor className="greenbutton" href="../tickets">
