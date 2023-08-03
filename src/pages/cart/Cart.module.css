@@ -25,3 +25,13 @@
   padding-top: 1rem;
   margin-bottom: 5rem;
 }
+.emptyCart,
+.confirmation {
+  text-align: center;
+  display: grid;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 30vh;
+  margin-top: 20vh;
+}

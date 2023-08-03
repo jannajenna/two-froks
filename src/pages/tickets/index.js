@@ -37,7 +37,7 @@ export default function Tickets(props) {
         <Anchor className="greenbutton" href="#">
           Program
         </Anchor>
-        <Anchor className="greenbutton" href="../cart/checkout">
+        <Anchor className="greenbutton" href="../cart">
           Pay Now
         </Anchor>
       </section>

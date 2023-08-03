@@ -28,8 +28,9 @@ function reducer(state, action) {
           return item;
         }
       });
+      const nextBasket3 = nextBasket2.filter((item) => !(item.name === action.payload.name && item.quantity2 === 0 && item.quantity3 === 0));
       console.log(action);
-      return { ...state, basket: nextBasket2 };
+      return { ...state, basket: nextBasket3 };
 
     case "REMOVE_ONE_TENT":
       const nextBasket = state.basket.map((item) => {

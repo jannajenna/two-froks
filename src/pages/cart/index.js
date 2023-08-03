@@ -38,26 +38,37 @@ export default function Cart(props) {
         <title>Cart</title>
       </Head>
       <Hero title="Cart" />
-      <ul className={styles.cartUl}>
-        {state.basket.map((item) => {
-          console.log(item);
-          return <CartItem {...item} key={item.name} />;
-        })}
-        <li className="cartBookingFee">Booking fee: {bookingFee},-DKK</li>
-        <li className="cartTotal">
-          Total:
-          {total + bookingFee}
-          ,-DKK
-        </li>
-      </ul>
-      <div className={styles.cartButtons}>
-        <Anchor className="greenbutton" href="../tickets">
-          Tickets
-        </Anchor>
-        <Anchor className="greenbutton" href="../cart/checkout">
-          Checkout
-        </Anchor>
-      </div>
+      {state.basket.length > 0 ? (
+        <div>
+          <ul className={styles.cartUl}>
+            {state.basket.map((item) => {
+              console.log(item);
+              return <CartItem {...item} key={item.name} />;
+            })}
+            <li className="cartBookingFee">Booking fee: {bookingFee},-DKK</li>
+            <li className="cartTotal">
+              Total:
+              {total + bookingFee}
+              ,-DKK
+            </li>
+          </ul>
+          <div className={styles.cartButtons}>
+            <Anchor className="greenbutton" href="../tickets">
+              Tickets
+            </Anchor>
+            <Anchor className="greenbutton" href="../cart/checkout">
+              Checkout
+            </Anchor>
+          </div>
+        </div>
+      ) : (
+        <div className={styles.emptyCart}>
+          <h3>Your Cart is empty</h3>
+          <Anchor className="greenbutton" href="../tickets">
+            Tickets
+          </Anchor>
+        </div>
+      )}
     </>
   );
 }
