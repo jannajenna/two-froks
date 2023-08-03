@@ -26,6 +26,10 @@ function CheckoutForm(props) {
       }
     });
   }
+  let totalPlusFee = 0;
+  if (total > 0) {
+    totalPlusFee = total + bookingFee;
+  }
   const [paymentCompleted, setPaymentCompleted] = useState(false);
   function submitted(e) {
     e.preventDefault();
@@ -64,7 +68,7 @@ function CheckoutForm(props) {
         <div className={styles.checkoutwrapper}>
           <form onSubmit={submitted} ref={theForm}>
             <div className={styles.formcontrol}>
-              {/* <h2>Ticket holders</h2>
+              <h2>Ticket holders</h2>
               <fieldset>
                 <legend>Regular Ticket</legend>
                 <label htmlFor="form-name">Full Name</label>
@@ -74,24 +78,26 @@ function CheckoutForm(props) {
                 <legend>VIP Ticket</legend>
                 <label htmlFor="form-name">Full Name</label>
                 <input required type="text" name="name" id="form-name" />
-              </fieldset> */}
+              </fieldset>
               <h2>Billing info</h2>
               <fieldset>
                 <label htmlFor="name">Full Name</label>
                 <input required type="text" name="name" id="name" />
                 <label htmlFor="email">Email</label>
                 <input required type="email" name="email" id="email" />
-                {/* <label htmlFor="form-phone">Phone number</label>
-                <input required type="number" name="phone" id="form-phone" />
-                <label htmlFor="form-street">Street and number</label>
-                <input required type="text" name="street" id="form-street" />
-                <label htmlFor="form-zip">ZIP code</label>
-                <input required type="text" name="zip" id="form-zip" />
-                <label htmlFor="form-street">Country</label>
-                <input required type="text" name="country" id="form-country" /> */}
+                <label htmlFor="phone">Phone number</label>
+                <input required type="number" name="phone" id="phone" />
+                <label htmlFor="street">Street and number</label>
+                <input required type="text" name="street" id="street" />
+                <label htmlFor="zip">ZIP code</label>
+                <input required type="text" name="zip" id="zip" />
+                <label htmlFor="country">Country</label>
+                <input required type="text" name="country" id="country" />
               </fieldset>
-              {/* <h2>Payment</h2>
-              <Radio checked>By Card</Radio>
+              <h2>Payment</h2>
+              <Radio disabled>bank transfer</Radio>
+              <Radio checked>by card</Radio>
+              <div className={styles.creditCard}></div>
               <fieldset>
                 <label for="CC_number">Credit card number</label>
                 <input type="number" minlength="16" maxlength="16" name="CC_number" id="CC_number" required />
@@ -101,7 +107,7 @@ function CheckoutForm(props) {
                 <input type="text" minlength="3" maxlength="3" name="cvv" id="cvv" required />
                 <label for="expiring">Date of expiration</label>
                 <input type="month" name="expiring" id="expiring" required />
-              </fieldset> */}
+              </fieldset>
               <button className="greenbutton" type="submit">
                 Confirm and Pay
               </button>
@@ -114,7 +120,7 @@ function CheckoutForm(props) {
                 return <CartItemCheckout {...item} key={item.name} />;
               })}
               <li className="checkoutBookingFee">Booking fee: {bookingFee},- DKK</li>
-              <li className="checkoutTotal">Total: {total + bookingFee},- DKK</li>
+              <li className="checkoutTotal">Total: {totalPlusFee},- DKK</li>
             </ul>
             <Anchor className="greenbutton" href="../cart">
               Edit Cart

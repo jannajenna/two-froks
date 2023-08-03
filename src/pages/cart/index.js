@@ -25,12 +25,6 @@ export default function Cart(props) {
       }
     });
   }
-  // let totalAmount = 0;
-  // if (state.basket) {
-  //   state.basket.forEach((item) => {
-  //     totalAmount += item.amount;
-  //   });
-  // }
 
   return (
     <>

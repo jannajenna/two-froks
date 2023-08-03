@@ -13,6 +13,39 @@
   gap: 1rem;
   margin-bottom: 6rem;
 }
+@media screen and (max-width: 850px) {
+  .checkoutwrapper {
+    display: block;
+  }
+  .checkoutwrapper form {
+    margin-bottom: 2rem;
+  }
+}
+.checkoutwrapper fieldset {
+  border: 1px solid #9595d1;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 3px;
+}
+.checkoutwrapper legend {
+  font-weight: bold;
+}
+.checkoutwrapper input {
+  border: 1px solid #9595d1;
+  background-color: var(--light-pink);
+  border-radius: 3px;
+  margin: 5px 0;
+  padding: 5px;
+  width: 100%;
+}
+.checkoutwrapper input {
+  border: 1px solid #9595d1;
+  background-color: var(--light-pink);
+  border-radius: 3px;
+  margin: 5px 0;
+  padding: 5px;
+  width: 100%;
+}
 .h2CheckoutCart {
   margin-bottom: 0;
 }
@@ -34,4 +67,12 @@
   justify-content: center;
   margin-bottom: 30vh;
   margin-top: 20vh;
+}
+.creditCard {
+  width: 90px;
+  height: 50px;
+  background-color: var(--light-purple);
+  border-radius: 5px;
+  margin: 10px;
+  margin-left: 0;
 }

@@ -4,6 +4,7 @@ import { StoreContext } from "@/contexts/storeContext";
 
 function CartItemCheckout(props) {
   const state = useContext(StoreContext);
+  const shouldRenderTitle = props.quantity3 > 0 || props.quantity2 > 0;
   let total = 0;
   if (state.basket) {
     state.basket.forEach((item) => {
@@ -20,7 +21,7 @@ function CartItemCheckout(props) {
   }
   return (
     <li className={styles.cartLi}>
-      <h4> {props.name} </h4>
+      {shouldRenderTitle ? <h4>{props.name} Camping</h4> : null}
       <div className={styles.cartItemCheckout}>
         <div>
           {props.quantity ? <p> {props.quantity}x</p> : null}
