@@ -1,8 +1,9 @@
 import styles from "./Navbar.module.css";
 import Anchor from "../Anchor";
-import { useState } from "react";
+import logo from "@/assets/foofest-logo.svg";
 import { useContext } from "react";
 import { StoreContext } from "@/contexts/storeContext";
+import Image from "next/image";
 
 export function Navbar() {
   const state = useContext(StoreContext);
@@ -28,8 +29,8 @@ export function Navbar() {
   }
   return (
     <nav className={styles.navbar}>
-      <Anchor className="navlink" href="#">
-        FooFest{" "}
+      <Anchor href="/" aria-label="Foofest">
+        <Image src={logo.src} width={118} height={20} alt="foofest logo" priority />
       </Anchor>
       <Anchor className="navlink" href="#">
         Program
