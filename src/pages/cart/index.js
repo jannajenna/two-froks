@@ -10,18 +10,27 @@ import styles from "./Cart.module.css";
 
 export default function Cart(props) {
   const state = useContext(StoreContext);
+  let bookingFee = 99;
   let total = 0;
   if (state.basket) {
     state.basket.forEach((item) => {
-      total += item.price * item.amount;
+      if (item.price) {
+        total += item.price * item.quantity;
+      }
+      if (item.price2) {
+        total += item.price2 * item.quantity2;
+      }
+      if (item.price3) {
+        total += item.price3 * item.quantity3;
+      }
     });
   }
-  let totalAmount = 0;
-  if (state.basket) {
-    state.basket.forEach((item) => {
-      totalAmount += item.amount;
-    });
-  }
+  // let totalAmount = 0;
+  // if (state.basket) {
+  //   state.basket.forEach((item) => {
+  //     totalAmount += item.amount;
+  //   });
+  // }
 
   return (
     <>
@@ -34,10 +43,10 @@ export default function Cart(props) {
           console.log(item);
           return <CartItem {...item} key={item.name} />;
         })}
-        <li className="cartBookingFee">Booking fee: 99,-DKK</li>
+        <li className="cartBookingFee">Booking fee: {bookingFee},-DKK</li>
         <li className="cartTotal">
           Total:
-          {totalAmount}
+          {total + bookingFee}
           ,-DKK
         </li>
       </ul>

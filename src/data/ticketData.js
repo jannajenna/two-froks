@@ -14,59 +14,74 @@ export const TicketData = {
   dolor ut sequi minus iste? Quas?`,
   },
   tent1: {
-    name: `Svartheim`,
-    price: {
-      for2: 299,
-      for3: 399,
-    },
+    name: `Svartheim2`,
+    price: 299,
     description: `Sapiente expedita hic obcaecati, laboriosam similique omnis architecto ducimus magnam accusantium corrupti
     quam sint dolore pariatur perspiciatis, necessitatibus rem vel dignissimos
     dolor ut sequi minus iste? Quas?`,
-    available: 0,
   },
   tent2: {
-    name: `Nilfheim`,
-    price: {
-      for2: 299,
-      for3: 399,
-    },
+    name: `Svartheim3`,
+    price: 399,
     description: `Sapiente expedita hic obcaecati, laboriosam similique omnis architecto ducimus magnam accusantium corrupti
     quam sint dolore pariatur perspiciatis, necessitatibus rem vel dignissimos
     dolor ut sequi minus iste? Quas?`,
-    available: 0,
   },
   tent3: {
-    name: `Helheim`,
-    price: {
-      for2: 299,
-      for3: 399,
-    },
+    name: `Nilfheim2`,
+    price: 299,
     description: `Sapiente expedita hic obcaecati, laboriosam similique omnis architecto ducimus magnam accusantium corrupti
     quam sint dolore pariatur perspiciatis, necessitatibus rem vel dignissimos
     dolor ut sequi minus iste? Quas?`,
-    available: 0,
   },
   tent4: {
-    name: `Muspelheim`,
-    price: {
-      for2: 299,
-      for3: 399,
-    },
+    name: `Nilfheim3`,
+    price: 399,
     description: `Sapiente expedita hic obcaecati, laboriosam similique omnis architecto ducimus magnam accusantium corrupti
     quam sint dolore pariatur perspiciatis, necessitatibus rem vel dignissimos
     dolor ut sequi minus iste? Quas?`,
-    available: 0,
   },
   tent5: {
-    name: `Alfheim`,
-    price: {
-      for2: 299,
-      for3: 399,
-    },
+    name: `Helheim2`,
+    price: 299,
     description: `Sapiente expedita hic obcaecati, laboriosam similique omnis architecto ducimus magnam accusantium corrupti
     quam sint dolore pariatur perspiciatis, necessitatibus rem vel dignissimos
     dolor ut sequi minus iste? Quas?`,
-    available: 0,
+  },
+  tent6: {
+    name: `Helheim3`,
+    price: 399,
+    description: `Sapiente expedita hic obcaecati, laboriosam similique omnis architecto ducimus magnam accusantium corrupti
+    quam sint dolore pariatur perspiciatis, necessitatibus rem vel dignissimos
+    dolor ut sequi minus iste? Quas?`,
+  },
+  tent7: {
+    name: `Muspelheim2`,
+    price: 299,
+    description: `Sapiente expedita hic obcaecati, laboriosam similique omnis architecto ducimus magnam accusantium corrupti
+    quam sint dolore pariatur perspiciatis, necessitatibus rem vel dignissimos
+    dolor ut sequi minus iste? Quas?`,
+  },
+  tent8: {
+    name: `Muspelheim3`,
+    price: 399,
+    description: `Sapiente expedita hic obcaecati, laboriosam similique omnis architecto ducimus magnam accusantium corrupti
+    quam sint dolore pariatur perspiciatis, necessitatibus rem vel dignissimos
+    dolor ut sequi minus iste? Quas?`,
+  },
+  tent9: {
+    name: `Alfheim2`,
+    price: 299,
+    description: `Sapiente expedita hic obcaecati, laboriosam similique omnis architecto ducimus magnam accusantium corrupti
+    quam sint dolore pariatur perspiciatis, necessitatibus rem vel dignissimos
+    dolor ut sequi minus iste? Quas?`,
+  },
+  tent10: {
+    name: `Alfheim2`,
+    price: 399,
+    description: `Sapiente expedita hic obcaecati, laboriosam similique omnis architecto ducimus magnam accusantium corrupti
+    quam sint dolore pariatur perspiciatis, necessitatibus rem vel dignissimos
+    dolor ut sequi minus iste? Quas?`,
   },
   green: {
     name: `Green Camping`,

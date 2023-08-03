@@ -15,7 +15,7 @@
 .cartItemCheckout {
   list-style: none;
   display: grid;
-  grid-template-columns: 1.5fr 24px 1fr;
+  grid-template-columns: 1fr 1fr;
   align-items: center;
 }
 .cartItemCheckout p {

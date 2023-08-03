@@ -30,14 +30,13 @@ function TentAccordion(props) {
   const dispatch = useContext(DispatchContext);
   function addToBasket() {
     dispatch({
-      action: "ADD_PRODUCT",
+      action: "ADD_TENT",
       payload: {
         name: props.name,
         price2: props.price2,
         price3: props.price3,
         tentFor2quantity: tentFor2quantity,
         tentFor3quantity: tentFor3quantity,
-        // totalPrice: totalPrice,
       },
     });
   }

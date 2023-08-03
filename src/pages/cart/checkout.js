@@ -11,6 +11,21 @@ import { Button, Checkbox, Form, Input, Radio } from "antd";
 
 function CheckoutForm(props) {
   const state = useContext(StoreContext);
+  let bookingFee = 99;
+  let total = 0;
+  if (state.basket) {
+    state.basket.forEach((item) => {
+      if (item.price) {
+        total += item.price * item.quantity;
+      }
+      if (item.price2) {
+        total += item.price2 * item.quantity2;
+      }
+      if (item.price3) {
+        total += item.price3 * item.quantity3;
+      }
+    });
+  }
   const theForm = useRef(null);
   const [paymentCompleted, setPaymentCompleted] = useState(false);
   async function submit(e) {
@@ -162,8 +177,8 @@ function CheckoutForm(props) {
               {state.basket.map((item) => {
                 return <CartItemCheckout {...item} key={item.name} />;
               })}
-              <li className="checkoutBookingFee">Booking fee: 99,-DKK</li>
-              <li className="checkoutTotal">Total: 99,-DKK</li>
+              <li className="checkoutBookingFee">Booking fee: {bookingFee},- DKK</li>
+              <li className="checkoutTotal">Total: {total + bookingFee},- DKK</li>
             </ul>
             <Anchor className="greenbutton" href="../cart">
               Edit Cart

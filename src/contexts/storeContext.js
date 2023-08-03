@@ -9,29 +9,98 @@ const initialState = {
 
 function reducer(state, action) {
   switch (action.action) {
-    case "EMPTY_BASKET":
-      return { ...state, basket: [] };
-    case "REMOVE_ONE_PRODUCT":
-      const nextBasket = state.basket.map((item) => {
-        if (item.name === action.payload.name) {
-          if (item.price.for2 === action.payload.price2) {
-            const copy = { ...item };
-            copy.amount--;
-            return copy;
-          }
-          if (item.price.for3 === action.payload.price3) {
-            const copy = { ...item };
-            copy.amount2--;
-            return copy;
-          }
+    case "REMOVE_TICKET":
+      const newBasket1 = state.basket.filter((item) => !(item.name === action.payload.name));
+      return { ...state, basket: newBasket1 };
+
+    case "REMOVE_TENT":
+      const nextBasket2 = state.basket.map((item) => {
+        if (item.name === action.payload.name && item.price2 === action.payload.price) {
+          const copy = { ...item };
+          copy.quantity2 = 0;
+          return copy;
+        }
+        if (item.name === action.payload.name && item.price3 === action.payload.price) {
+          const copy = { ...item };
+          copy.quantity3 = 0;
+          return copy;
         } else {
           return item;
         }
       });
-      const finalBasket = nextBasket.filter((item) => item.amount > 0);
       console.log(action);
-      return { ...state, basket: finalBasket };
-    case "ADD_PRODUCT":
+      return { ...state, basket: nextBasket2 };
+
+    case "REMOVE_ONE_TENT":
+      const nextBasket = state.basket.map((item) => {
+        if (item.name === action.payload.name && item.price2 === action.payload.price) {
+          const copy = { ...item };
+          copy.quantity2--;
+          return copy;
+        }
+        if (item.name === action.payload.name && item.price3 === action.payload.price) {
+          const copy = { ...item };
+          copy.quantity3--;
+          return copy;
+        } else {
+          return item;
+        }
+      });
+      console.log(action);
+      return { ...state, basket: nextBasket };
+
+    case "REMOVE_ONE_TICKET":
+      const netBasket = state.basket.map((item) => {
+        if (item.name === action.payload.name) {
+          const copy = { ...item };
+          copy.quantity--;
+          return copy;
+        } else {
+          return item;
+        }
+      });
+      const finlBasket = netBasket.filter((item) => !(item.name === action.payload.name && item.quantity === 0));
+      console.log(action);
+      return { ...state, basket: finlBasket };
+
+    case "ADD_TENT":
+      const exist = state.basket.find((item) => item.name === action.payload.name);
+      if (exist) {
+        const nextBasket = state.basket.map((item) => {
+          if (item.name === action.payload.name && item.price2 === action.payload.price) {
+            const copy = { ...item };
+            copy.quantity2++;
+            return copy;
+          }
+          if (item.name === action.payload.name && item.price3 === action.payload.price) {
+            const copy = { ...item };
+            copy.quantity3++;
+            return copy;
+          } else {
+            return item;
+          }
+        });
+        return { ...state, basket: nextBasket };
+      } else {
+        const newItem = {};
+        if (action.payload.tentFor3quantity && action.payload.tentFor2quantity) {
+          newItem.quantity2 = action.payload.tentFor2quantity;
+          newItem.quantity3 = action.payload.tentFor3quantity;
+          newItem.price2 = action.payload.price2;
+          newItem.price3 = action.payload.price3;
+        }
+        if (action.payload.tentFor3quantity) {
+          newItem.quantity3 = action.payload.tentFor3quantity;
+          newItem.price3 = action.payload.price3;
+        } else {
+          newItem.quantity2 = action.payload.tentFor2quantity;
+          newItem.price2 = action.payload.price2;
+        }
+        newItem.name = action.payload.name;
+        return { ...state, basket: state.basket.concat(newItem) };
+      }
+
+    case "ADD_TICKET":
       console.log(state, action);
       const exists = state.basket.find((item) => item.name === action.payload.name);
       if (exists) {
@@ -39,7 +108,7 @@ function reducer(state, action) {
           if (item.name === action.payload.name) {
             // found it
             const copy = { ...item };
-            copy.amount++;
+            copy.quantity++;
             return copy;
           } else {
             return item;
@@ -48,24 +117,18 @@ function reducer(state, action) {
         return { ...state, basket: nextBasket };
       } else {
         const newItem = action.payload;
-        if (action.payload.tentFor3quantity && action.payload.tentFor2quantity) {
-          newItem.amount2 = action.payload.tentFor2quantity;
-          newItem.amount3 = action.payload.tentFor3quantity;
-          newItem.price2 = action.payload.price2;
-          newItem.price3 = action.payload.price3;
-        } else if (action.payload.tentFor3quantity) {
-          newItem.amount3 = action.payload.tentFor3quantity;
-          newItem.price3 = action.payload.price3;
-        } else if (action.payload.tentFor2quantity) {
-          newItem.amount2 = action.payload.tentFor2quantity;
-          newItem.price2 = action.payload.price2;
-        } else newItem.amount = action.payload.quantity;
+        newItem.quantity = action.payload.quantity;
         newItem.price = action.payload.price;
         return { ...state, basket: state.basket.concat(newItem) };
       }
-
-      return [];
   }
+  // name: props.name,
+  // price: null,
+  // quantity: null,
+  // price2: props.price2,
+  // price3: props.price3,
+  // tentFor2quantity: tentFor2quantity,
+  // tentFor3quantity: tentFor3quantity,
 }
 
 export const StoreProvider = ({ children }) => {

@@ -5,19 +5,32 @@ import styles from "./CartItem.module.css";
 
 function TicketItem(props) {
   const dispatch = useContext(DispatchContext);
-  function removeOne() {
+  const totalPrice = props.price * props.quantity;
+  function deleteOne() {
     dispatch({
-      action: "REMOVE_ONE_PRODUCT",
+      action: "REMOVE_TICKET",
       payload: {
         name: props.name,
       },
     });
   }
-  function addOne() {
+  function removeOne() {
     dispatch({
-      action: "ADD_PRODUCT",
+      action: "REMOVE_ONE_TICKET",
       payload: {
         name: props.name,
+        price: props.price,
+        quantity: props.quantity,
+      },
+    });
+  }
+  function addOne() {
+    dispatch({
+      action: "ADD_TICKET",
+      payload: {
+        name: props.name,
+        price: props.price,
+        quantity: props.quantity,
       },
     });
   }
@@ -26,7 +39,7 @@ function TicketItem(props) {
   return (
     <div className={styles.cartItemMultiple}>
       <h3> {props.name} ticket</h3>
-      <p> {props.amount}x</p>
+      <p> {props.quantity}x</p>
       {shouldRenderButton ? (
         <button className={styles.cartButton} onClick={removeOne}>
           <MinusSquareOutlined style={{ fontSize: "24px", color: "#2b164e" }} />
@@ -41,8 +54,8 @@ function TicketItem(props) {
       ) : (
         <div></div>
       )}
-      <p className={styles.cartItemPrice}>{props.price},-DKK</p>
-      <button className={styles.cartButton} onClick={() => dispatch({ action: "EMPTY_BASKET" })}>
+      <p className={styles.cartItemPrice}>{totalPrice},-DKK</p>
+      <button className={styles.cartButton} onClick={deleteOne}>
         <DeleteOutlined style={{ fontSize: "24px", color: "#2b164e" }} />
       </button>
     </div>

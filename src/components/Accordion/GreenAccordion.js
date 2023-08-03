@@ -10,12 +10,11 @@ function GreenAccordion(props) {
   const totalPrice = props.price;
   function addToBasket() {
     dispatch({
-      action: "ADD_PRODUCT",
+      action: "ADD_TICKET",
       payload: {
         name: props.name,
         price: props.price,
         quantity: 1,
-        totalPrice: totalPrice,
       },
     });
   }

@@ -20,12 +20,11 @@ function TicketAccordion(props) {
   const dispatch = useContext(DispatchContext);
   function addToBasket() {
     dispatch({
-      action: "ADD_PRODUCT",
+      action: "ADD_TICKET",
       payload: {
         name: props.name,
         price: props.price,
         quantity: quantity,
-        totalPrice: totalPrice,
       },
     });
   }
