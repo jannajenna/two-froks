@@ -3,8 +3,11 @@ import { DispatchContext } from "@/contexts/storeContext";
 import { MinusSquareOutlined, PlusSquareOutlined, DeleteOutlined } from "@ant-design/icons";
 import styles from "./CartItem.module.css";
 import { Modal } from "antd";
+import { StoreContext } from "@/contexts/storeContext";
 
 function TentItem(props) {
+  const state = useContext(StoreContext);
+  const { basket } = state;
   const dispatch = useContext(DispatchContext);
   let totalQuantity = 0;
   if (props.quantity2 && props.quantity3) {
@@ -16,10 +19,24 @@ function TentItem(props) {
   if (props.quantity3) {
     totalQuantity = props.quantity3;
   }
+  let ticketQuantity = 0;
+  if (basket) {
+    basket.forEach((item) => {
+      if (item.price) {
+        ticketQuantity += item.quantity;
+      }
+    });
+  }
   function modalError() {
     Modal.error({
       title: `There is no more spots in ${props.name} area.`,
       content: "Please check another camping area.",
+    });
+  }
+  function modalError2() {
+    Modal.error({
+      title: `You can't reserve more tents than tickets.`,
+      content: "You are only allowed 1 tent per 1 ticket.",
     });
   }
   function deleteTentFor2() {
@@ -53,6 +70,11 @@ function TentItem(props) {
     console.log("total quantity:", totalQuantity);
     if (props.available <= totalQuantity) {
       modalError();
+      return;
+    }
+    if (!ticketQuantity || ticketQuantity <= totalQuantity) {
+      modalError2();
+      return;
     } else {
       dispatch({
         action: "ADD_TENT",
@@ -75,6 +97,11 @@ function TentItem(props) {
   function addTentFor3() {
     if (props.available < totalQuantity) {
       modalError();
+      return;
+    }
+    if (!ticketQuantity || ticketQuantity < totalQuantity) {
+      modalError2();
+      return;
     } else {
       dispatch({
         action: "ADD_TENT",

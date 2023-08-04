@@ -33,6 +33,7 @@ function CheckoutForm(props) {
   if (total > 0) {
     totalPlusFee = total + bookingFee;
   }
+
   const [paymentCompleted, setPaymentCompleted] = useState(false);
   function submitted(e) {
     e.preventDefault();

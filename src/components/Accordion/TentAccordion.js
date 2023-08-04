@@ -81,7 +81,7 @@ function TentAccordion(props) {
   const dispatch = useContext(DispatchContext);
   console.log("ticketQuantity:", ticketQuantity);
   function addToBasket() {
-    if (!ticketQuantity || ticketQuantity < totalQuantity) {
+    if (!ticketQuantity || ticketQuantity <= totalQuantity) {
       modalError2();
       return;
     } else {

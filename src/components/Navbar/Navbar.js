@@ -25,7 +25,7 @@ export function Navbar() {
   }
   let totalPlusFee = 0;
   if (total > 0) {
-    totalPlusFee = total + bookingFee;
+    totalPlusFee = `${total + bookingFee} ,- DKK`;
   }
   return (
     <nav className={styles.navbar}>
