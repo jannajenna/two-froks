@@ -34,3 +34,6 @@
 .cartLi {
   list-style: none;
 }
+.formField {
+  display: grid;
+}

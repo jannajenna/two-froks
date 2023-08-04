@@ -6,29 +6,22 @@ function CartItemCheckout(props) {
   const state = useContext(StoreContext);
   const shouldRenderTitle = props.quantity3 > 0 || props.quantity2 > 0;
   let total = 0;
-  if (state.basket) {
-    state.basket.forEach((item) => {
-      if (item.price) {
-        total += item.price * item.quantity;
-      }
-      if (item.price2) {
-        total += item.price2 * item.quantity2;
-      }
-      if (item.price3) {
-        total += item.price3 * item.quantity3;
-      }
-    });
-  }
   return (
     <li className={styles.cartLi}>
       {shouldRenderTitle ? <h4>{props.name} Camping</h4> : null}
       <div className={styles.cartItemCheckout}>
         <div>
-          {props.quantity ? <p> {props.quantity}x</p> : null}
+          {props.quantity ? (
+            <p>
+              {props.quantity}x {props.name} Ticket
+            </p>
+          ) : null}
           {props.quantity2 ? <p> {props.quantity2}x tent for 2 </p> : null}
           {props.quantity3 ? <p> {props.quantity3}x tent for 3 </p> : null}
         </div>
-        <p className={styles.cartItemPrice}>{total},-DKK</p>
+        {props.quantity ? <p className={styles.cartItemPrice}>{props.quantity * props.price},-DKK</p> : null}
+        {props.quantity2 ? <p className={styles.cartItemPrice}>{props.quantity2 * props.price2},-DKK</p> : null}
+        {props.quantity3 ? <p className={styles.cartItemPrice}>{props.quantity3 * props.price3},-DKK</p> : null}
       </div>
     </li>
   );

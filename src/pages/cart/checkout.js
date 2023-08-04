@@ -9,6 +9,43 @@ import { Radio } from "antd";
 import checkmark from "@/assets/checkmark.svg";
 import Image from "next/image";
 import PaymentForm from "./card";
+import NameInputField from "@/components/Cart/NameInputField";
+
+function RegularTicketInput() {
+  const state = useContext(StoreContext);
+  const { basket } = state;
+  const renderInputFields = () => {
+    return basket.map((item) => {
+      const inputFields = [];
+      if (item.name === "Regular") {
+        for (let i = 0; i < item.quantity; i++) {
+          inputFields.push(<NameInputField key={i} index={i} />);
+        }
+      }
+      return inputFields;
+    });
+  };
+
+  return <div>{renderInputFields()}</div>;
+}
+
+function VIPTicketInput() {
+  const state = useContext(StoreContext);
+  const { basket } = state;
+  const renderInputFields = () => {
+    return basket.map((item) => {
+      const inputFields = [];
+      if (item.name === "VIP") {
+        for (let i = 0; i < item.quantity; i++) {
+          inputFields.push(<NameInputField key={i} index={i} />);
+        }
+      }
+      return inputFields;
+    });
+  };
+
+  return <div>{renderInputFields()}</div>;
+}
 
 function CheckoutForm(props) {
   const state = useContext(StoreContext);
@@ -16,6 +53,8 @@ function CheckoutForm(props) {
   const { basket } = state;
   let bookingFee = 99;
   let total = 0;
+  const isRegularIncluded = basket.some((item) => item.name === "Regular");
+  const isVIPIncluded = basket.some((item) => item.name === "VIP");
   if (state.basket) {
     state.basket.forEach((item) => {
       if (item.price) {
@@ -77,16 +116,18 @@ function CheckoutForm(props) {
             <form onSubmit={submitted} ref={theForm}>
               <div className={styles.formcontrol}>
                 <h2>Ticket holders</h2>
-                <fieldset>
-                  <legend>Regular Ticket</legend>
-                  <label htmlFor="form-name">Name</label>
-                  <input className={styles.longinput} required placeholder="Full Name" type="text" name="name" id="form-name" />
-                </fieldset>
-                <fieldset>
-                  <legend>VIP Ticket</legend>
-                  <label htmlFor="form-name">Name</label>
-                  <input required placeholder="Full Name" type="text" name="name" id="form-name" />
-                </fieldset>
+                {isRegularIncluded ? (
+                  <fieldset>
+                    <legend>Regular Ticket</legend>
+                    <RegularTicketInput />
+                  </fieldset>
+                ) : null}
+                {isVIPIncluded ? (
+                  <fieldset>
+                    <legend>VIP Ticket</legend>
+                    <VIPTicketInput />
+                  </fieldset>
+                ) : null}
                 <h2>Billing info</h2>
                 <fieldset>
                   <label htmlFor="name">Name</label>
@@ -106,17 +147,6 @@ function CheckoutForm(props) {
                 <Radio disabled>bank transfer</Radio>
                 <Radio checked>by card</Radio>
                 <PaymentForm />
-                {/* <div className={styles.creditCard}></div>
-                <fieldset>
-                  <label for="CC_number">Credit card number</label>
-                  <input type="number" minlength="16" maxlength="16" name="CC_number" id="CC_number" required />
-                  <label htmlFor="form-name">Name on a card</label>
-                  <input required type="text" name="name" id="form-name" />
-                  <label for="cvv">CVV</label>
-                  <input type="text" minlength="3" maxlength="3" name="cvv" id="cvv" required />
-                  <label for="expiring">Date of expiration</label>
-                  <input type="month" name="expiring" id="expiring" required />
-                </fieldset> */}
                 <button className="greenbutton" type="submit">
                   Confirm and Pay
                 </button>
