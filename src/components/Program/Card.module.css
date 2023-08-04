@@ -14,10 +14,10 @@
   height: auto;
 }
 
-.bkg {
+/* .bkg {
   background-color: var(--light-purple);
 }
-
+ */
 .img_container {
   /*  width: 250px; */
   height: 200px;
@@ -26,6 +26,7 @@
   grid-template-rows: 1fr;
   justify-items: end;
   align-items: end;
+  border: 1px solid;
 }
 
 .img {
@@ -39,9 +40,16 @@
 .icon {
   grid-column: 1/2;
   grid-row: 1/2;
-  padding: 8px;
+  margin: 8px !important;
+  color: var(--yellow);
+}
+
+.icon_size {
+  height: 2rem;
+  width: 2rem;
+  padding: 0;
 }
 
 .solid {
-  border-top: 2px solid var(--dark-purple);
+  border-top: 1px solid var(--dark-purple);
 }

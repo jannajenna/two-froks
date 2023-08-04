@@ -1,12 +1,19 @@
 import styles from "./Filterprogram.module.css";
-import YellowButton from "../Buttons/YellowButton";
+
+import DayButton from "../Buttons/DayButton"
+import NightButton from "../Buttons/NightButton"
+
 
 export default function ByTime() {
     return (
-        <div>
+        <div className={styles.filters}>
             <h5>by time</h5>
-            <YellowButton name="Day"></YellowButton>
-            <YellowButton name="Night"></YellowButton>
+            <div className={styles.btn_time}>
+                <DayButton name="Day"></DayButton>
+                <NightButton name="Night"></NightButton>
+
+            </div>
+
         </div>
     );
 }

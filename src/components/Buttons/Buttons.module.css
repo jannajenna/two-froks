@@ -20,3 +20,16 @@
 .greenbutton:hover {
   background-color: var(--green-hover);
 }
+
+.day {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  column-gap: 6px;
+}
+
+.icon_size {
+  height: 1.2rem;
+  width: 1.2rem;
+  padding: 0;
+}

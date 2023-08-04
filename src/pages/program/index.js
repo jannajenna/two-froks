@@ -1,26 +1,25 @@
 import { Hero } from "@/components/Hero/Hero";
-import DayGrid from "@/components/Program/DayGrid";
 import Filterprogram from "@/components/FilterProgram/Filterprogram";
-import Viewmode from "@/components/Program/Viewmode";
 
-export default function Program() {
+
+export default function Program({ data }) {
+
+    console.log('DATA:', data);
+
     return (
         <>
             <Hero title="Program" />
-            <div>
-                <Filterprogram />
-                <Viewmode />
-                <DayGrid />
-            </div>
+            <Filterprogram data={data} />
         </>
     );
 }
 
 
-/* export async function getStaticProps() {
+// Function to fetch data from the API
+export async function getServerSideProps() {
     // Fetch data from external API
-    const api = "https://blush-entertaining-raver.glitch.me/schedule";
-    const res = await fetch(api);
+    const url = 'https://blush-entertaining-raver.glitch.me/schedule/';
+    const res = await fetch(url);
     // If no data - no page (404)
     if (res.status != 200) {
         return {
@@ -34,4 +33,7 @@ export default function Program() {
             data,
         },
     };
-} */
+}
+
+
+
