@@ -3,11 +3,20 @@ import styles from "./Accordion.module.css";
 import { useContext } from "react";
 import { DispatchContext } from "@/contexts/storeContext";
 import { MinusSquareOutlined, PlusSquareOutlined, UpOutlined, DownOutlined } from "@ant-design/icons";
+import { notification } from "antd";
 
 function TicketAccordion(props) {
   const [isActive, setIsActive] = useState(false);
   const [quantity, setQuantity] = useState(0);
   let totalPrice = quantity * props.price;
+  const [api, contextHolder] = notification.useNotification();
+  function openNotification() {
+    api.open({
+      message: "Tickets added to cart",
+      description: "We will reserve them for 5 minutes.",
+      duration: 3,
+    });
+  }
   let incrementQuantity = () => {
     setQuantity(quantity + 1);
   };
@@ -19,6 +28,7 @@ function TicketAccordion(props) {
   };
   const dispatch = useContext(DispatchContext);
   function addToBasket() {
+    openNotification();
     dispatch({
       action: "ADD_TICKET",
       payload: {
@@ -30,6 +40,7 @@ function TicketAccordion(props) {
   }
   return (
     <article className={styles.item}>
+      <>{contextHolder}</>
       <div className={styles.title} onClick={() => setIsActive(!isActive)}>
         <div>{isActive ? <UpOutlined style={{ fontSize: "24px", color: "#2b164e" }} /> : <DownOutlined style={{ fontSize: "24px", color: "#2b164e" }} />}</div>
         <h3>{props.name}</h3>

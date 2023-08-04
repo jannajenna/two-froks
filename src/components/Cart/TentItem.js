@@ -2,9 +2,26 @@ import { useContext } from "react";
 import { DispatchContext } from "@/contexts/storeContext";
 import { MinusSquareOutlined, PlusSquareOutlined, DeleteOutlined } from "@ant-design/icons";
 import styles from "./CartItem.module.css";
+import { Modal } from "antd";
 
 function TentItem(props) {
   const dispatch = useContext(DispatchContext);
+  let totalQuantity = 0;
+  if (props.quantity2 && props.quantity3) {
+    totalQuantity = props.quantity2 + props.quantity3;
+  }
+  if (props.quantity2) {
+    totalQuantity = props.quantity2;
+  }
+  if (props.quantity3) {
+    totalQuantity = props.quantity3;
+  }
+  function modalError() {
+    Modal.error({
+      title: `There is no more spots in ${props.name} area.`,
+      content: "Please check another camping area.",
+    });
+  }
   function deleteTentFor2() {
     dispatch({
       action: "REMOVE_TENT",
@@ -33,13 +50,18 @@ function TentItem(props) {
     });
   }
   function addTentFor2() {
-    dispatch({
-      action: "ADD_TENT",
-      payload: {
-        name: props.name,
-        price: props.price2,
-      },
-    });
+    console.log("total quantity:", totalQuantity);
+    if (props.available <= totalQuantity) {
+      modalError();
+    } else {
+      dispatch({
+        action: "ADD_TENT",
+        payload: {
+          name: props.name,
+          price: props.price2,
+        },
+      });
+    }
   }
   function removeTentFor3() {
     dispatch({
@@ -51,13 +73,17 @@ function TentItem(props) {
     });
   }
   function addTentFor3() {
-    dispatch({
-      action: "ADD_TENT",
-      payload: {
-        name: props.name,
-        price: props.price3,
-      },
-    });
+    if (props.available < totalQuantity) {
+      modalError();
+    } else {
+      dispatch({
+        action: "ADD_TENT",
+        payload: {
+          name: props.name,
+          price: props.price3,
+        },
+      });
+    }
   }
   const shouldRenderTentFor2 = props.quantity2 > 0;
   const shouldRenderTentFor3 = props.quantity3 > 0;

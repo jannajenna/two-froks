@@ -39,7 +39,7 @@ function CheckoutForm(props) {
     const payload = {
       name: theForm.current.elements.name.value,
       email: theForm.current.elements.email.value,
-      // address: theForm.current.elements.address.value,
+      address: theForm.current.elements.address.value,
       basket: basket,
     };
     fetch("/api/add-order", {
@@ -93,11 +93,11 @@ function CheckoutForm(props) {
                   <label htmlFor="email">Email</label>
                   <input required placeholder="Email Address" type="email" name="email" id="email" />
                   <label htmlFor="phone">Phone number</label>
-                  <input required placeholder="Phone Number" type="number" name="phone" id="phone" />
+                  <input required placeholder="Phone Number" type="tel" name="phone" id="phone" />
                   <label htmlFor="street">Address</label>
                   <input required placeholder="Street and number" type="text" name="street" id="street" />
                   <label htmlFor="zip">ZIP code</label>
-                  <input required type="text" name="zip" id="zip" />
+                  <input required type="text" pattern="^[0-9]+$" title="Please enter only numbers" name="zip" id="zip" minLength="4" maxlength="5" />
                   <label htmlFor="country">Country</label>
                   <input required type="text" name="country" id="country" />
                 </fieldset>

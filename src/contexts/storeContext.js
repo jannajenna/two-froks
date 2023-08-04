@@ -98,6 +98,7 @@ function reducer(state, action) {
           newItem.price2 = action.payload.price2;
         }
         newItem.name = action.payload.name;
+        newItem.available = action.payload.available;
         return { ...state, basket: state.basket.concat(newItem) };
       }
 
