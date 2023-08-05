@@ -1,7 +1,7 @@
 import styles from "./Buttons.module.css";
 
-function YellowButton(props) {
-  return <button className={styles.yellowbutton}>{props.name}</button>;
+function YellowButton({ name, onClick }) {
+  return <button className={styles.yellowbutton} onClick={onClick}>{name}</button>;
 }
 
 export default YellowButton;

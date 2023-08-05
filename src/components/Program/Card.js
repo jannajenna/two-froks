@@ -2,21 +2,17 @@ import styles from "./Card.module.css";
 import { AiOutlineStar } from "react-icons/ai"
 
 
-export default function Card({ data, name }) {
+export default function Card({ bands, data, name }) {
 
-
-    console.log('DATA:', data);
-
-
-    //console.log('CARD 1:', midgardData);
-    //console.log('CARD 2:', jotunheimData);
-    //console.log('CARD 3:', vanaheimData);
+    //console.log('DATA:', data);
+    //console.log('BANDS:', bands);
+    //console.log('NAME:', name);
 
     return (
         <div>
             <div className={`${styles.card_container} ${styles.bkg}`}>
                 <div className={styles.img_container}>
-                    <img className={styles.img} src="" alt=""></img>
+                    {/* <img className={styles.img} src="" alt=""></img> */}
                     <AiOutlineStar className={`${styles.icon_size} ${styles.icon}`} />
                 </div>
                 <div /* className={styles.column_container} */>
@@ -34,3 +30,4 @@ export default function Card({ data, name }) {
         </div >
     );
 }
+

@@ -2,7 +2,7 @@ import Head from "next/head";
 import Band from "@/components/Band";
 
 export default function Home({ data }) {
-  console.log(data);
+  //console.log(data);
   return (
     <>
       <Head>
@@ -34,6 +34,7 @@ export async function getStaticProps() {
     };
   }
   const data = await res.json();
+  console.log('BANDS:', data);
   // Pass data to the page via props
   return {
     props: {

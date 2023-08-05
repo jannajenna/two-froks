@@ -1,7 +1,6 @@
 import DayDropDownGrid from "./DayDropDownGrid";
 
-export function Monday({ open, toggle, midgardData, jotunheimData, vanaheimData }) {
-
+export function Monday({ bands, open, toggle, midgardData, jotunheimData, vanaheimData }) {
 
     //Days
     const midgardMon = midgardData?.mon
@@ -10,6 +9,7 @@ export function Monday({ open, toggle, midgardData, jotunheimData, vanaheimData 
 
     return (
         <DayDropDownGrid
+            bands={bands}
             open={open}
             toggle={toggle}
             day="MONDAY"
@@ -21,7 +21,7 @@ export function Monday({ open, toggle, midgardData, jotunheimData, vanaheimData 
 }
 
 
-export function Tuesday({ open, toggle, midgardData, jotunheimData, vanaheimData }) {
+export function Tuesday({ bands, open, toggle, midgardData, jotunheimData, vanaheimData }) {
 
     //Days
     const midgardTue = midgardData?.tue
@@ -30,6 +30,7 @@ export function Tuesday({ open, toggle, midgardData, jotunheimData, vanaheimData
 
     return (
         <DayDropDownGrid
+            bands={bands}
             open={open}
             toggle={toggle}
             day="TUESDAY"
@@ -40,7 +41,7 @@ export function Tuesday({ open, toggle, midgardData, jotunheimData, vanaheimData
     );
 }
 
-export function Wednesday({ open, toggle, midgardData, jotunheimData, vanaheimData }) {
+export function Wednesday({ bands, open, toggle, midgardData, jotunheimData, vanaheimData }) {
 
     //Days
     const midgardWed = midgardData?.wed
@@ -49,6 +50,7 @@ export function Wednesday({ open, toggle, midgardData, jotunheimData, vanaheimDa
 
     return (
         <DayDropDownGrid
+            bands={bands}
             open={open}
             toggle={toggle}
             day="WEDNESDAY"
@@ -59,7 +61,7 @@ export function Wednesday({ open, toggle, midgardData, jotunheimData, vanaheimDa
     );
 }
 
-export function Thursday({ open, toggle, midgardData, jotunheimData, vanaheimData }) {
+export function Thursday({ bands, open, toggle, midgardData, jotunheimData, vanaheimData }) {
 
     //Days
     const midgardThu = midgardData?.thu
@@ -68,6 +70,7 @@ export function Thursday({ open, toggle, midgardData, jotunheimData, vanaheimDat
 
     return (
         <DayDropDownGrid
+            bands={bands}
             open={open}
             toggle={toggle}
             day="THURSDAY"
@@ -78,7 +81,7 @@ export function Thursday({ open, toggle, midgardData, jotunheimData, vanaheimDat
     );
 }
 
-export function Friday({ open, toggle, midgardData, jotunheimData, vanaheimData }) {
+export function Friday({ bands, open, toggle, midgardData, jotunheimData, vanaheimData }) {
 
     //Days
     const midgardFri = midgardData?.fri
@@ -87,6 +90,7 @@ export function Friday({ open, toggle, midgardData, jotunheimData, vanaheimData 
 
     return (
         <DayDropDownGrid
+            bands={bands}
             open={open}
             toggle={toggle}
             day="FRIDAY"
@@ -97,7 +101,7 @@ export function Friday({ open, toggle, midgardData, jotunheimData, vanaheimData 
     );
 }
 
-export function Saturday({ open, toggle, midgardData, jotunheimData, vanaheimData }) {
+export function Saturday({ bands, open, toggle, midgardData, jotunheimData, vanaheimData }) {
 
     //Days
     const midgardSat = midgardData?.sat
@@ -106,6 +110,7 @@ export function Saturday({ open, toggle, midgardData, jotunheimData, vanaheimDat
 
     return (
         <DayDropDownGrid
+            bands={bands}
             open={open}
             toggle={toggle}
             day="SATURDAY"
@@ -116,7 +121,7 @@ export function Saturday({ open, toggle, midgardData, jotunheimData, vanaheimDat
     );
 }
 
-export function Sunday({ open, toggle, midgardData, jotunheimData, vanaheimData }) {
+export function Sunday({ bands, open, toggle, midgardData, jotunheimData, vanaheimData }) {
 
     //Days
     const midgardSun = midgardData?.sun
@@ -125,6 +130,7 @@ export function Sunday({ open, toggle, midgardData, jotunheimData, vanaheimData 
 
     return (
         <DayDropDownGrid
+            bands={bands}
             open={open}
             toggle={toggle}
             day="SUNDAY"
