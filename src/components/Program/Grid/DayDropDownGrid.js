@@ -3,12 +3,10 @@ import styles from "../ProgramElements.module.css";
 import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai"
 import Card from "./Card";
 
-export default function DayDropDownGrid({ bands, open, toggle, bandDataM, bandDataJ, bandDataV, day }) {
-
+export default function DayDropDownGrid({ bands, open, toggle, dataStage, day }) {
     //Remove breaks from program
-    const onlyBandsM = bandDataM?.filter((band) => band.act !== "break");
-    const onlyBandsJ = bandDataJ?.filter((band) => band.act !== "break");
-    const onlyBandsV = bandDataV?.filter((band) => band.act !== "break");
+    const onlyBands = dataStage?.filter((band) => band.act !== "break")
+
 
     return (
 
@@ -21,15 +19,8 @@ export default function DayDropDownGrid({ bands, open, toggle, bandDataM, bandDa
             </div>
             <Collapse isOpened={open}>
                 <div className={styles.grid_cards}>
-
-                    {onlyBandsM?.map((item) => (
-                        <Card key={item.act} data={item} name="Midgard" />
-                    ))}
-                    {onlyBandsJ?.map((item) => (
-                        <Card key={item.act} data={item} name="Jotunheim" />
-                    ))}
-                    {onlyBandsV?.map((item) => (
-                        <Card key={item.act} data={item} name="Vanaheim" />
+                    {onlyBands?.map((item) => (
+                        <Card key={item.act} data={item} /* name="Midgard" */ />
                     ))}
                 </div>
             </Collapse>
@@ -37,25 +28,3 @@ export default function DayDropDownGrid({ bands, open, toggle, bandDataM, bandDa
     );
 }
 
-{/* <Collapse isOpened={open}>
-                <div className={styles.grid_cards}>
-
-                    {onlyBandsM?.map((item) => (
-                        <Card key={item.act} data={item} name="Midgard" bands={bands} />
-                    ))}
-                </div>
-            </Collapse>
-            <Collapse isOpened={open}>
-                <div className={styles.grid_cards}>
-                    {onlyBandsJ?.map((item) => (
-                        <Card key={item.act} data={item} name="Jotunheim" bands={bands} />
-                    ))}
-                </div>
-            </Collapse>
-            <Collapse isOpened={open}>
-                <div className={styles.grid_cards}>
-                    {onlyBandsV?.map((item) => (
-                        <Card key={item.act} data={item} name="Vanaheim" bands={bands} />
-                    ))}
-                </div>
-            </Collapse> */}

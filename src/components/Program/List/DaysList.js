@@ -1,11 +1,10 @@
 import DayDropDownList from "./DayDropDownList";
 
-export function Monday({ bands, open, toggle, midgardData, jotunheimData, vanaheimData }) {
+export function Monday({ bands, open, toggle, dataStage }) {
+
 
     //Days
-    const midgardMon = midgardData?.mon
-    const jotunheimMon = jotunheimData?.mon
-    const vanaheimMon = vanaheimData?.mon
+    const stageMo = dataStage?.mon
 
     return (
         <DayDropDownList
@@ -13,20 +12,16 @@ export function Monday({ bands, open, toggle, midgardData, jotunheimData, vanahe
             open={open}
             toggle={toggle}
             day="MONDAY"
-            bandDataM={midgardMon}
-            bandDataJ={jotunheimMon}
-            bandDataV={vanaheimMon}
+            dataStage={stageMo}
         />
     );
 }
 
 
-export function Tuesday({ bands, open, toggle, midgardData, jotunheimData, vanaheimData }) {
+export function Tuesday({ bands, open, toggle, dataStage }) {
 
     //Days
-    const midgardTue = midgardData?.tue
-    const jotunheimTue = jotunheimData?.tue
-    const vanaheimTue = vanaheimData?.tue
+    const stageTue = dataStage?.tue
 
     return (
         <DayDropDownList
@@ -34,19 +29,17 @@ export function Tuesday({ bands, open, toggle, midgardData, jotunheimData, vanah
             open={open}
             toggle={toggle}
             day="TUESDAY"
-            bandDataM={midgardTue}
-            bandDataJ={jotunheimTue}
-            bandDataV={vanaheimTue}
+            dataStage={stageTue}
+
         />
     );
 }
 
-export function Wednesday({ bands, open, toggle, midgardData, jotunheimData, vanaheimData }) {
+export function Wednesday({ bands, open, toggle, dataStage }) {
 
     //Days
-    const midgardWed = midgardData?.wed
-    const jotunheimWed = jotunheimData?.wed
-    const vanaheimWed = vanaheimData?.wed
+    const stageWed = dataStage?.wed
+
 
     return (
         <DayDropDownList
@@ -54,19 +47,17 @@ export function Wednesday({ bands, open, toggle, midgardData, jotunheimData, van
             open={open}
             toggle={toggle}
             day="WEDNESDAY"
-            bandDataM={midgardWed}
-            bandDataJ={jotunheimWed}
-            bandDataV={vanaheimWed}
+            dataStage={stageWed}
+
         />
     );
 }
 
-export function Thursday({ bands, open, toggle, midgardData, jotunheimData, vanaheimData }) {
+export function Thursday({ bands, open, toggle, dataStage }) {
 
     //Days
-    const midgardThu = midgardData?.thu
-    const jotunheimThu = jotunheimData?.thu
-    const vanaheimThu = vanaheimData?.thu
+    const stageThu = dataStage?.thu
+
 
     return (
         <DayDropDownList
@@ -74,19 +65,17 @@ export function Thursday({ bands, open, toggle, midgardData, jotunheimData, vana
             open={open}
             toggle={toggle}
             day="THURSDAY"
-            bandDataM={midgardThu}
-            bandDataJ={jotunheimThu}
-            bandDataV={vanaheimThu}
+            dataStage={stageThu}
+
         />
     );
 }
 
-export function Friday({ bands, open, toggle, midgardData, jotunheimData, vanaheimData }) {
+export function Friday({ bands, open, toggle, dataStage }) {
 
     //Days
-    const midgardFri = midgardData?.fri
-    const jotunheimFri = jotunheimData?.fri
-    const vanaheimFri = vanaheimData?.fri
+    const stageFri = dataStage?.fri
+
 
     return (
         <DayDropDownList
@@ -94,19 +83,17 @@ export function Friday({ bands, open, toggle, midgardData, jotunheimData, vanahe
             open={open}
             toggle={toggle}
             day="FRIDAY"
-            bandDataM={midgardFri}
-            bandDataJ={jotunheimFri}
-            bandDataV={vanaheimFri}
+            dataStage={stageFri}
+
         />
     );
 }
 
-export function Saturday({ bands, open, toggle, midgardData, jotunheimData, vanaheimData }) {
+export function Saturday({ bands, open, toggle, dataStage }) {
 
     //Days
-    const midgardSat = midgardData?.sat
-    const jotunheimSat = jotunheimData?.sat
-    const vanaheimSat = vanaheimData?.sat
+    const stageSat = dataStage?.sat
+
 
     return (
         <DayDropDownList
@@ -114,19 +101,17 @@ export function Saturday({ bands, open, toggle, midgardData, jotunheimData, vana
             open={open}
             toggle={toggle}
             day="SATURDAY"
-            bandDataM={midgardSat}
-            bandDataJ={jotunheimSat}
-            bandDataV={vanaheimSat}
+            dataStage={stageSat}
+
         />
     );
 }
 
-export function Sunday({ bands, open, toggle, midgardData, jotunheimData, vanaheimData }) {
+export function Sunday({ bands, open, toggle, dataStage }) {
 
     //Days
-    const midgardSun = midgardData?.sun
-    const jotunheimSun = jotunheimData?.sun
-    const vanaheimSun = vanaheimData?.sun
+    const stageSun = dataStage?.sun
+
 
     return (
         <DayDropDownList
@@ -134,9 +119,8 @@ export function Sunday({ bands, open, toggle, midgardData, jotunheimData, vanahe
             open={open}
             toggle={toggle}
             day="SUNDAY"
-            bandDataM={midgardSun}
-            bandDataJ={jotunheimSun}
-            bandDataV={vanaheimSun}
+            dataStage={stageSun}
+
         />
     );
 }

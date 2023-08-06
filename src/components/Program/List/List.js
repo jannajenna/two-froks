@@ -9,9 +9,8 @@ export default function List({ bands, data, name }) {
                     <AiOutlineStar className={`${styles.icon_size} ${styles.icon_list}`} />
                     <div className={styles.row_line}>
                         <h4 className={styles.uppercase}>{data.act}</h4>
-                        <div className={styles.line_2}>
-                            <p>{name}</p>
-                            <p>{data.start}</p>
+                        <div className={styles.row_container}>
+                            <p>{data.start} - {data.end} </p>
                         </div>
                     </div>
                 </div>

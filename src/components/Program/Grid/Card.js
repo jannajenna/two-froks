@@ -18,8 +18,7 @@ export default function Card({ bands, data, name }) {
                 <div /* className={styles.column_container} */>
                     <h4>{data.act}</h4>
                     <div className={styles.row_container}>
-                        <p>{name}</p>
-                        <p>{data.start}</p>
+                        <p>{data.start} - {data.end} </p>
                     </div>
                     <hr className={styles.solid}></hr>
                 </div>

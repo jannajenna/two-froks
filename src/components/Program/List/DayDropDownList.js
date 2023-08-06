@@ -1,15 +1,14 @@
 import { Collapse } from "react-collapse";
 import styles from "../ProgramElements.module.css";
 import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai"
-import { BsChevronDown, BsChevronUp } from "react-icons/bs"
 import List from "./List";
 
-export default function DayDropDownList({ bands, open, toggle, bandDataM, bandDataJ, bandDataV, day }) {
+export default function DayDropDownList({ bands, open, toggle, dataStage, day }) {
 
     //Remove breaks from program
-    const onlyBandsM = bandDataM?.filter((band) => band.act !== "break");
-    const onlyBandsJ = bandDataJ?.filter((band) => band.act !== "break");
-    const onlyBandsV = bandDataV?.filter((band) => band.act !== "break");
+    const onlyBands = dataStage?.filter((band) => band.act !== "break")
+
+    console.log(onlyBands)
 
     return (
 
@@ -21,19 +20,13 @@ export default function DayDropDownList({ bands, open, toggle, bandDataM, bandDa
                 </div>
             </div>
             <Collapse isOpened={open}>
-                <div /* className={styles.grid_cards} */>
-
-                    {onlyBandsM?.map((item) => (
-                        <List key={item.act} data={item} name="Midgard" />
-                    ))}
-                    {onlyBandsJ?.map((item) => (
-                        <List key={item.act} data={item} name="Jotunheim" />
-                    ))}
-                    {onlyBandsV?.map((item) => (
-                        <List key={item.act} data={item} name="Vanaheim" />
+                <div >
+                    {onlyBands?.map((item) => (
+                        <List key={item.act} data={item} /* name="Midgard" */ />
                     ))}
                 </div>
             </Collapse>
         </div >
     );
 }
+

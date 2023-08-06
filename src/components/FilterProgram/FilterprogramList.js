@@ -25,16 +25,23 @@ export default function Filterprogram({ data, bands }) {
 
     //Filter stages
     // State to keep track of the selected stage and its data
-    const [selectStage, setselectStage] = useState("Midgard");
+    const [selectedStage, setSelectedStage] = useState("Midgard");
     // Function to update the selected stage and its data
-    const handleStageClick = (stage) => {
-        setselectStage(stage);
-    };
+    const handleStageClick = (stage) => setSelectedStage(stage);
 
     // The data for each stage
     const midgardData = data.Midgard;
     const jotunheimData = data.Jotunheim;
     const vanaheimData = data.Vanaheim
+
+    let selectedData;
+    if (selectedStage === "Midgard") {
+        selectedData = midgardData;
+    } else if (selectedStage === "Jotunheim") {
+        selectedData = jotunheimData;
+    } else if (selectedStage === "Vanaheim") {
+        selectedData = vanaheimData;
+    }
 
     return (
         <div >
@@ -53,14 +60,8 @@ export default function Filterprogram({ data, bands }) {
             <Viewmode />
             <DayList
                 bands={bands}
-                dataDay={
-                    selectStage === "Midgard"
-                        ? midgardData
-                        : selectStage === "Jotunheim"
-                            ? jotunheimData
-                            : vanaheimData
-                }
-                name={selectStage}
+                dataStage={selectedData}
+                name={selectedStage}
             />
         </div>
     );
