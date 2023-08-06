@@ -9,21 +9,30 @@ function TentItem(props) {
   const state = useContext(StoreContext);
   const { basket } = state;
   const dispatch = useContext(DispatchContext);
-  let totalQuantity = 0;
-  if (props.quantity2 && props.quantity3) {
-    totalQuantity = props.quantity2 + props.quantity3;
+  let ticketQuantity = 0;
+  let tentFor2quantity = 0;
+  let tentFor3quantity = 0;
+  if (props.quantity) {
   }
   if (props.quantity2) {
-    totalQuantity = props.quantity2;
+    tentFor2quantity = props.quantity2;
   }
   if (props.quantity3) {
-    totalQuantity = props.quantity3;
+    tentFor3quantity = props.quantity3;
   }
-  let ticketQuantity = 0;
+  let totalTentQuantity = tentFor2quantity + tentFor3quantity;
   if (basket) {
     basket.forEach((item) => {
       if (item.price) {
-        ticketQuantity += item.quantity;
+        if (item.name) {
+          ticketQuantity += item.quantity;
+        }
+      }
+      if (item.price2) {
+        totalTentQuantity += item.quantity2;
+      }
+      if (item.price3) {
+        totalTentQuantity += item.quantity3;
       }
     });
   }
@@ -67,12 +76,13 @@ function TentItem(props) {
     });
   }
   function addTentFor2() {
-    console.log("total quantity:", totalQuantity);
-    if (props.available <= totalQuantity) {
+    console.log("total tent quantity:", totalTentQuantity);
+    console.log("total ticket quantity:", ticketQuantity);
+    if (props.available <= totalTentQuantity) {
       modalError();
       return;
     }
-    if (!ticketQuantity || ticketQuantity <= totalQuantity) {
+    if (!ticketQuantity || ticketQuantity < totalTentQuantity) {
       modalError2();
       return;
     } else {
@@ -95,11 +105,11 @@ function TentItem(props) {
     });
   }
   function addTentFor3() {
-    if (props.available < totalQuantity) {
+    if (props.available < totalTentQuantity) {
       modalError();
       return;
     }
-    if (!ticketQuantity || ticketQuantity < totalQuantity) {
+    if (!ticketQuantity || ticketQuantity < totalTentQuantity) {
       modalError2();
       return;
     } else {

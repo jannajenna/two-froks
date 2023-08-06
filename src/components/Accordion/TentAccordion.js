@@ -14,8 +14,8 @@ function TentAccordion(props) {
   const [tentFor2quantity, setTentfFor2Quantity] = useState(0);
   const [tentFor3quantity, setTentfFor3Quantity] = useState(0);
   let totalPrice = tentFor2quantity * props.price2 + tentFor3quantity * props.price3;
-  let totalQuantity = tentFor2quantity + tentFor3quantity;
   let ticketQuantity = 0;
+  let totalTentQuantity = tentFor2quantity + tentFor3quantity;
 
   async function reserveSpot() {
     const res = await fetch("https://blush-entertaining-raver.glitch.me/" + "reserve-spot", {
@@ -38,7 +38,15 @@ function TentAccordion(props) {
   if (basket) {
     basket.forEach((item) => {
       if (item.price) {
-        ticketQuantity += item.quantity;
+        if (item.name) {
+          ticketQuantity += item.quantity;
+        }
+      }
+      if (item.price2) {
+        totalTentQuantity += item.quantity2;
+      }
+      if (item.price3) {
+        totalTentQuantity += item.quantity3;
       }
     });
   }
@@ -66,7 +74,7 @@ function TentAccordion(props) {
 
   let increment2Quantity = () => {
     if (props.available !== 0) {
-      if (props.available <= totalQuantity) {
+      if (props.available <= totalTentQuantity) {
         modalError();
       } else {
         setTentfFor2Quantity(tentFor2quantity + 1);
@@ -84,7 +92,7 @@ function TentAccordion(props) {
   };
   let increment3Quantity = () => {
     if (props.available !== 0) {
-      if (props.available <= totalQuantity) {
+      if (props.available <= totalTentQuantity) {
         modalError();
       } else {
         setTentfFor3Quantity(tentFor3quantity + 1);
@@ -100,7 +108,7 @@ function TentAccordion(props) {
   };
 
   function addToBasket() {
-    if (!ticketQuantity || ticketQuantity < totalQuantity) {
+    if (!ticketQuantity || ticketQuantity < totalTentQuantity) {
       modalError2();
       return;
     } else {
