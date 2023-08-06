@@ -10,7 +10,6 @@ function CartItem(props) {
   } else {
     isTicket = false;
   }
-  console.log("Cart item props", props);
   return (
     <li className={styles.cartLi}>
       <div>{isTicket ? <TicketItem {...props} /> : <TentItem {...props} />}</div>

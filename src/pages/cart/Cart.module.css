@@ -97,3 +97,6 @@
 .cardField {
   margin-top: 1rem;
 }
+.formField {
+  display: grid;
+}

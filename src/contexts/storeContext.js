@@ -9,6 +9,11 @@ const initialState = {
 
 function reducer(state, action) {
   switch (action.action) {
+    case "RESERVE_TENT":
+      const newItem = action.payload;
+      newItem.id = action.payload.id;
+      return { ...state, basket: state.basket.concat(newItem) };
+
     case "REMOVE_TICKET":
       const newBasket1 = state.basket.filter((item) => !(item.name === action.payload.name));
       return { ...state, basket: newBasket1 };
@@ -29,7 +34,6 @@ function reducer(state, action) {
         }
       });
       const nextBasket3 = nextBasket2.filter((item) => !(item.name === action.payload.name && item.quantity2 === 0 && item.quantity3 === 0));
-      console.log(action);
       return { ...state, basket: nextBasket3 };
 
     case "REMOVE_ONE_TENT":
@@ -47,7 +51,6 @@ function reducer(state, action) {
           return item;
         }
       });
-      console.log(action);
       return { ...state, basket: nextBasket };
 
     case "REMOVE_ONE_TICKET":
@@ -61,7 +64,6 @@ function reducer(state, action) {
         }
       });
       const finlBasket = netBasket.filter((item) => !(item.name === action.payload.name && item.quantity === 0));
-      console.log(action);
       return { ...state, basket: finlBasket };
 
     case "ADD_TENT":
@@ -103,7 +105,6 @@ function reducer(state, action) {
       }
 
     case "ADD_TICKET":
-      console.log(state, action);
       const exists = state.basket.find((item) => item.name === action.payload.name);
       if (exists) {
         const nextBasket = state.basket.map((item) => {

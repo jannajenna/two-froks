@@ -8,6 +8,7 @@ import { StoreContext } from "@/contexts/storeContext";
 
 function TentAccordion(props) {
   const state = useContext(StoreContext);
+  const dispatch = useContext(DispatchContext);
   const { basket } = state;
   const [isActive, setIsActive] = useState(false);
   const [tentFor2quantity, setTentfFor2Quantity] = useState(0);
@@ -15,6 +16,25 @@ function TentAccordion(props) {
   let totalPrice = tentFor2quantity * props.price2 + tentFor3quantity * props.price3;
   let totalQuantity = tentFor2quantity + tentFor3quantity;
   let ticketQuantity = 0;
+
+  async function reserveSpot() {
+    const res = await fetch("https://blush-entertaining-raver.glitch.me/" + "reserve-spot", {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        area: props.name,
+        amount: tentFor2quantity + tentFor3quantity,
+      }),
+    });
+    const reservation = await res.json();
+    dispatch({
+      action: "RESERVE_TENT",
+      payload: {
+        id: reservation.id,
+      },
+    });
+  }
+
   if (basket) {
     basket.forEach((item) => {
       if (item.price) {
@@ -22,6 +42,7 @@ function TentAccordion(props) {
       }
     });
   }
+
   function modalError() {
     Modal.error({
       title: `There is no more spots in ${props.name} area.`,
@@ -42,6 +63,7 @@ function TentAccordion(props) {
       duration: 3,
     });
   }
+
   let increment2Quantity = () => {
     if (props.available !== 0) {
       if (props.available <= totalQuantity) {
@@ -53,7 +75,6 @@ function TentAccordion(props) {
       modalError();
     }
   };
-
   let decrement2Quantity = () => {
     if (props.available !== 0) {
       if (tentFor2quantity > 0) {
@@ -70,7 +91,6 @@ function TentAccordion(props) {
       }
     } else modalError();
   };
-
   let decrement3Quantity = () => {
     if (props.available !== 0) {
       if (tentFor3quantity > 0) {
@@ -78,15 +98,14 @@ function TentAccordion(props) {
       } else return;
     } else return;
   };
-  const dispatch = useContext(DispatchContext);
-  console.log("ticketQuantity:", ticketQuantity);
+
   function addToBasket() {
-    if (!ticketQuantity || ticketQuantity <= totalQuantity) {
+    if (!ticketQuantity || ticketQuantity < totalQuantity) {
       modalError2();
       return;
     } else {
+      reserveSpot();
       openNotification();
-      console.log("available", props.available);
       dispatch({
         action: "ADD_TENT",
         payload: {

@@ -9,23 +9,27 @@ import { Radio } from "antd";
 import checkmark from "@/assets/checkmark.svg";
 import Image from "next/image";
 import PaymentForm from "./card";
-import NameInputField from "@/components/Cart/NameInputField";
 
 function RegularTicketInput() {
   const state = useContext(StoreContext);
   const { basket } = state;
+
   const renderInputFields = () => {
     return basket.map((item) => {
       const inputFields = [];
       if (item.name === "Regular") {
         for (let i = 0; i < item.quantity; i++) {
-          inputFields.push(<NameInputField key={i} index={i} />);
+          inputFields.push(
+            <div className={styles.formField} key={i} index={i}>
+              <label htmlFor="regularticketname">Full Name</label>
+              <input required type="text" name="regularticketname" id="regularticketname" />
+            </div>
+          );
         }
       }
       return inputFields;
     });
   };
-
   return <div>{renderInputFields()}</div>;
 }
 
@@ -37,13 +41,17 @@ function VIPTicketInput() {
       const inputFields = [];
       if (item.name === "VIP") {
         for (let i = 0; i < item.quantity; i++) {
-          inputFields.push(<NameInputField key={i} index={i} />);
+          inputFields.push(
+            <div className={styles.formField} key={i} index={i}>
+              <label htmlFor="vipticketname">Full Name</label>
+              <input required type="text" name="vipticketname" id="vipticketname" />
+            </div>
+          );
         }
       }
       return inputFields;
     });
   };
-
   return <div>{renderInputFields()}</div>;
 }
 
@@ -55,6 +63,15 @@ function CheckoutForm(props) {
   let total = 0;
   const isRegularIncluded = basket.some((item) => item.name === "Regular");
   const isVIPIncluded = basket.some((item) => item.name === "VIP");
+  let idValue;
+
+  for (const item of basket) {
+    if (item.id !== undefined) {
+      idValue = item.id;
+      break;
+    }
+  }
+
   if (state.basket) {
     state.basket.forEach((item) => {
       if (item.price) {
@@ -73,14 +90,31 @@ function CheckoutForm(props) {
     totalPlusFee = total + bookingFee;
   }
 
+  async function placeOrder() {
+    const res = await fetch("https://blush-entertaining-raver.glitch.me/" + "fullfill-reservation", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        id: idValue,
+      }),
+    });
+    const order = await res.json();
+    console.log("order:", order);
+  }
+
   const [paymentCompleted, setPaymentCompleted] = useState(false);
   function submitted(e) {
     e.preventDefault();
     const payload = {
-      name: theForm.current.elements.name.value,
+      billing_name: theForm.current.elements.billing_name.value,
+      // vipticketname: vipticketname,
+      // regularticketname: regularticketname,
       email: theForm.current.elements.email.value,
-      address: theForm.current.elements.address.value,
+      address: theForm.current.elements.street.value,
+      zip: theForm.current.elements.zip.value,
+      country: theForm.current.elements.country.value,
       basket: basket,
+      order_id: idValue,
     };
     fetch("/api/add-order", {
       method: "POST",
@@ -130,16 +164,16 @@ function CheckoutForm(props) {
                 ) : null}
                 <h2>Billing info</h2>
                 <fieldset>
-                  <label htmlFor="name">Name</label>
-                  <input required placeholder="Full Name" type="text" name="name" id="name" />
+                  <label htmlFor="billing_name">Full Name</label>
+                  <input required type="text" name="billing_name" id="billing_name" />
                   <label htmlFor="email">Email</label>
-                  <input required placeholder="Email Address" type="email" name="email" id="email" />
+                  <input required type="email" name="email" id="email" />
                   <label htmlFor="phone">Phone number</label>
-                  <input required placeholder="Phone Number" type="tel" name="phone" id="phone" />
+                  <input required type="tel" name="phone" id="phone" />
                   <label htmlFor="street">Address</label>
-                  <input required placeholder="Street and number" type="text" name="street" id="street" />
+                  <input required type="text" name="street" id="street" />
                   <label htmlFor="zip">ZIP code</label>
-                  <input required type="text" pattern="^[0-9]+$" title="Please enter only numbers" name="zip" id="zip" minLength="4" maxlength="5" />
+                  <input required type="text" pattern="^[0-9]+$" title="Please enter only numbers" name="zip" id="zip" minLength="4" maxLength="5" />
                   <label htmlFor="country">Country</label>
                   <input required type="text" name="country" id="country" />
                 </fieldset>
@@ -147,7 +181,7 @@ function CheckoutForm(props) {
                 <Radio disabled>bank transfer</Radio>
                 <Radio checked>by card</Radio>
                 <PaymentForm />
-                <button className="greenbutton" type="submit">
+                <button className="greenbutton" type="submit" onClick={placeOrder}>
                   Confirm and Pay
                 </button>
               </div>

@@ -36,7 +36,6 @@ export default function Cart(props) {
         <div>
           <ul className={styles.cartUl}>
             {state.basket.map((item) => {
-              console.log(item);
               return <CartItem {...item} key={item.name} />;
             })}
             <li className="cartBookingFee">Booking fee: {bookingFee},-DKK</li>
