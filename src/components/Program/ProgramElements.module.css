@@ -128,33 +128,13 @@
 }
 
 .row_line {
-  display: grid;
-  width: 100%;
-  /* grid-template-columns: 60% 40%; */
-  grid-template-rows: auto;
-}
-
-/* .line_2 {
   display: flex;
-  flex-direction: row;
-  column-gap: 8px;
-  justify-content: flex-end;
-  align-content: center;
-} */
+  width: 100%;
+  justify-content: space-between;
+}
 
 .uppercase {
   text-transform: uppercase;
 }
 
 /* MEDIA QUERIES */
-
-/* medium*/
-@media (min-width: 768px) {
-  .row_line {
-    grid-template-columns: 60% 40%;
-  }
-
-  .line_2 {
-    align-items: center;
-  }
-}
