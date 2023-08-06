@@ -38,6 +38,10 @@
   align-items: center;
   gap: 1rem;
 }
+.itemQuantity button {
+  background-color: transparent;
+  cursor: pointer;
+}
 .flex {
   display: flex;
 }

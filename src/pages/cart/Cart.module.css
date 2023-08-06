@@ -1,0 +1,102 @@
+.formcontrol,
+.checkoutCart {
+  background-color: var(--white);
+  padding: 0rem 2rem 1.5rem 2rem;
+  box-shadow: 1px 1px 15px 1px rgba(0, 0, 0, 0.05);
+  border-radius: 5px;
+  display: grid;
+}
+.checkoutwrapper {
+  display: grid;
+  align-items: start;
+  grid-template-columns: 1fr 300px;
+  gap: 1rem;
+  margin-bottom: 6rem;
+}
+@media screen and (max-width: 850px) {
+  .checkoutwrapper {
+    display: block;
+  }
+  .checkoutwrapper form {
+    margin-bottom: 2rem;
+  }
+}
+.checkoutwrapper fieldset {
+  border: 1px solid #9595d1;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 3px;
+  display: grid;
+}
+.checkoutwrapper legend {
+  font-weight: bold;
+}
+.checkoutwrapper input {
+  border: 1px solid #9595d1;
+  background-color: var(--light-pink);
+  border-radius: 3px;
+  margin: 5px 0;
+  padding: 5px;
+}
+.h2CheckoutCart {
+  margin-bottom: 0;
+}
+.checkoutCart li {
+  font-size: smaller;
+}
+.cartButtons {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 1rem;
+  margin-bottom: 5rem;
+}
+.emptyCart,
+.confirmation {
+  text-align: center;
+  display: grid;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 25vh;
+  margin-top: 15vh;
+  justify-items: center;
+  height: 25vh;
+}
+.confirmation {
+  margin-top: 30vh;
+}
+.creditCard {
+  width: 90px;
+  height: 50px;
+  background-color: var(--light-purple);
+  border-radius: 5px;
+  margin: 10px;
+  margin-left: 0;
+}
+.card {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 1rem;
+}
+.card input {
+  grid-column: 1 / 3;
+}
+.card .expiry {
+  grid-column: 1/2;
+}
+.card .cvcLabel {
+  grid-column: 2/3;
+  grid-row: 5 / 6;
+}
+.card .cvcNumber {
+  grid-column: 2/3;
+  grid-row: 6 / 7;
+}
+.cardField {
+  margin-top: 1rem;
+}
+.formField {
+  display: grid;
+}

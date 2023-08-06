@@ -1,5 +1,5 @@
 import styles from "./Hero.module.css";
-import { Grandstander, Space_Grotesk, Poppins } from "next/font/google";
+import { Grandstander } from "next/font/google";
 
 const grandstander = Grandstander({
   subsets: ["latin"],
