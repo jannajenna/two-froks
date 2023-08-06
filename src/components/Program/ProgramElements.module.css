@@ -6,6 +6,10 @@
   color: var(--red);
 }
 
+.color_icon:hover {
+  color: var(--dark-hover);
+}
+
 .flex_column {
   display: flex;
   flex-direction: column;
@@ -19,9 +23,15 @@
   flex-direction: row;
   align-items: center;
   column-gap: 16px;
-  /* justify-content: space-between; */
 }
 
+.flex_row_icons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  column-gap: 16px;
+  justify-content: flex-end;
+}
 .icon_size {
   height: 1.5rem;
   width: 1.5rem;
@@ -36,4 +46,112 @@
   column-gap: 1.5rem;
   row-gap: 2rem;
   justify-items: center;
+}
+
+/* CARDS */
+
+.column_container {
+  display: flex;
+  flex-direction: column;
+}
+
+.row_container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.card_container {
+  width: 200px;
+  height: auto;
+}
+
+.img_container {
+  /*  width: 250px; */
+  height: 200px;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  justify-items: end;
+  align-items: end;
+  border: 1px solid;
+}
+
+.img {
+  /*  width: 250px;
+  height: 250px; */
+  object-fit: cover;
+  display: block;
+  grid-column: 1/2;
+  grid-row: 1/2;
+}
+.icon {
+  grid-column: 1/2;
+  grid-row: 1/2;
+  margin: 8px !important;
+  color: var(--yellow);
+}
+
+.icon_size {
+  height: 2rem;
+  width: 2rem;
+  padding: 0;
+}
+
+.solid {
+  border-top: 1px solid var(--dark-purple);
+}
+
+/* LIST */
+
+.solid_list {
+  border-top: 2px solid var(--dark-purple);
+  margin: 0;
+}
+
+.icon_list {
+  color: var(--yellow);
+}
+
+.icon_list:hover {
+  color: var(--yellow-hover);
+}
+
+.list_container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  column-gap: 8px;
+}
+
+.row_line {
+  display: grid;
+  width: 100%;
+  /* grid-template-columns: 60% 40%; */
+  grid-template-rows: auto;
+}
+
+.line_2 {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-content: center;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+/* MEDIA QUERIES */
+
+/* medium*/
+@media (min-width: 768px) {
+  .row_line {
+    grid-template-columns: 60% 40%;
+  }
+
+  .line_2 {
+    align-items: center;
+  }
 }

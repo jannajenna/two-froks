@@ -1,4 +1,4 @@
-import styles from "./Card.module.css";
+import styles from "../ProgramElements.module.css"
 import { AiOutlineStar } from "react-icons/ai"
 
 

@@ -1,5 +1,5 @@
 import { Collapse } from "react-collapse";
-import styles from "./ProgramElements.module.css";
+import styles from "../ProgramElements.module.css";
 import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai"
 import Card from "./Card";
 

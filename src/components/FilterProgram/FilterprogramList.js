@@ -1,7 +1,7 @@
 import { useState } from "react";
 //components imported
 import Viewmode from "@/components/Program/Viewmode";
-import DayGrid from "@/components/Program/Grid/DayGrid";
+import DayList from "@/components/Program/List/DayList";
 //Filtercomponnts
 import ByDay from "./ByDay";
 import ByStage from "./ByStage";
@@ -9,6 +9,7 @@ import ByTime from "./ByTime";
 import styles from "./Filterprogram.module.css";
 import { BsChevronDown, BsChevronUp } from "react-icons/bs"
 import { Collapse } from "react-collapse";
+
 
 export default function Filterprogram({ data, bands }) {
 
@@ -50,7 +51,7 @@ export default function Filterprogram({ data, bands }) {
                 </Collapse>
             </div>
             <Viewmode />
-            <DayGrid
+            <DayList
                 bands={bands}
                 dataDay={
                     selectStage === "Midgard"
