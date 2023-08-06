@@ -37,7 +37,7 @@ export default function Tickets(props) {
         <h5>Booking fee: 99,-DKK</h5>
       </section>
       <section className={styles.buttons}>
-        <Anchor className="greenbutton" href="#">
+        <Anchor className="greenbutton" href="../program">
           Program
         </Anchor>
         <Anchor className="greenbutton" href="../cart">

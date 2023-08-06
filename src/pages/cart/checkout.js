@@ -127,7 +127,7 @@ function CheckoutForm(props) {
       .then((data) => console.log(data));
     if (submitted) {
       setPaymentCompleted(true);
-      console.log("Payment Completed? ", paymentCompleted);
+      // console.log("Payment Completed? ", paymentCompleted);
     }
   }
   return (
