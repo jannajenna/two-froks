@@ -28,7 +28,7 @@ export default function DayGrid({ bands, name, dataStage }) {
 
     return (
         <div>
-            <h2>{name}</h2>
+            <h2>{name}'s stage</h2>
             {daysOfWeek.map(({ DayComponent, dayIndex }) => (
                 <DayComponent
                     key={dayIndex}
